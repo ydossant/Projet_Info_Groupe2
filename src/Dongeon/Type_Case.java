@@ -1,5 +1,5 @@
 package Dongeon;
 
 public enum Type_Case {
-	piege, potion, mur, objectif;
+	piege, potion, mur, objectif, vide;
 }
