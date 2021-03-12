@@ -1,19 +1,7 @@
 package Dongeon;
 
 public class Plateau {
-<<<<<<< HEAD
-<<<<<<< HEAD
-	int f = 9;
-	
-	
-	
-=======
-	int a=2;
->>>>>>> branch 'main' of https://github.com/ydossant/Projet_Info_Groupe2.git
 
-}
-=======
-	
 	private int nbrelign ;
     private int nbrecol;
     private char [][] grille;
@@ -43,4 +31,4 @@ public class Plateau {
    }
  
 }
->>>>>>> branch 'main' of https://github.com/ydossant/Projet_Info_Groupe2.git
+
