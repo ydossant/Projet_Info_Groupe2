@@ -13,6 +13,10 @@ public class Heros {
 	setPV(PV);
 	this.PV_Depart= this.PV;
 	
+	
+	
+	
+	
 	}
 
 	public int getPV() {
@@ -35,6 +39,10 @@ public class Heros {
 	    		this.PV = this.PV_Depart;
 	    }
 		
+		
+		
+		
+		
 	}
 
 	public boolean getObjets() {
@@ -45,6 +53,13 @@ public class Heros {
 	public void setObjets(boolean objets) {
 		
 		Objets = objets;
+		
+		
+		
+		
+		
+		
+		
 	}
 
 	public int getPV_Depart() {
@@ -54,6 +69,11 @@ public class Heros {
 	
 	
 	
+	
+	
+	public String toString () {
+		return ("Nombre de pv : "+ getPV());
+	}
 	
 	
 }
