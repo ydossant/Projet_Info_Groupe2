@@ -1,4 +1,4 @@
-package Plateau;
+package Outils;
 
 import Plateau.Plateau;
 
