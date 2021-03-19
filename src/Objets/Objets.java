@@ -1,5 +1,5 @@
 package Objets;
 
-public class Objetts {
+public class Objets {
 
 }
