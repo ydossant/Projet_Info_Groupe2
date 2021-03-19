@@ -1,9 +1,17 @@
 package Plateau;
 
-public class InvalidCoordException {
+import Plateau.Plateau;
 
-	public InvalidCoordException() {
-		// TODO Auto-generated constructor stub
+
+public class InvalidCoordException extends Exception{
+	
+	public InvalidCoordException()
+	{
+		super();
 	}
-
+	
+	public InvalidCoordException(String message)
+	{
+		super(message);
+	}
 }
