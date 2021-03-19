@@ -1,9 +1,17 @@
 package Objets;
 
-public class Alea {
+import java.util.*;
 
-	public Alea() {
-		// TODO Auto-generated constructor stub
+public class Alea 
+{
+
+	static private Random R = new Random();
+	
+
+	static public int EntierEntre( int min, int max )
+	{
+		int val = R.nextInt(max-min+1) + min;
+		
+		return val;
 	}
-
 }
