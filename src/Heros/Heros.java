@@ -53,5 +53,5 @@ public class Heros {
 		return ("Nombre de pv : "+ getPV());
 	}
 
-	
+
 }
