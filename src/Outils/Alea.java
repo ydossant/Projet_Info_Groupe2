@@ -1,9 +1,9 @@
-package outils;
+package Outils;
 
 import java.util.Random;
 
 public class Alea {
-
+	
 	static private Random R = new Random();
 	
 	static public int EntierEntre( int min, int max )
@@ -12,4 +12,6 @@ public class Alea {
 		
 		return valeur;
 	}
+	
+	
 }
