@@ -12,6 +12,5 @@ public class Alea {
 		
 		return valeur;
 	}
-	
-	
 }
+
