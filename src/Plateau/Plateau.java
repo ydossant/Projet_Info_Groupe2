@@ -1,7 +1,6 @@
 package Plateau;
-import java.io.Serializable;
 
-public class Plateau implements Serializable {
+public class Plateau {
 	private static Plateau _donj;
 	
 	private Type_case potion, mur, vide, piege;
