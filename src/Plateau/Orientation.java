@@ -7,8 +7,7 @@ import Plateau.Plateau;
 import Outils.InvalidCoordException;
 import Plateau.Orientation;
 
-public class Orientation implements Cloneable, java.io.Serializable
-{
+public class Orientation implements Cloneable, java.io.Serializable {
 	private int i, j;
 
 	private static int MAX_I = -1;
@@ -65,7 +64,7 @@ public class Orientation implements Cloneable, java.io.Serializable
 		int j = this.get_coordJ() + 1;
 		this.set_J(j);
 	}
-/
+
 	public void en_Bas() throws InvalidCoordException
 	{
 		/* On ajoute 1 à l'ordonnée */
@@ -131,7 +130,7 @@ public class Orientation implements Cloneable, java.io.Serializable
 			throw new InvalidCoordException("En dehors de la zone (trop à droite)");
 		}
 	}
-/
+
 	public final static void set_MAX_ORD(int maxI)
 	{
 		if( Orientation.MAX_I == -1 )
