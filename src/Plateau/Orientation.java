@@ -53,28 +53,24 @@ public class Orientation implements Cloneable, java.io.Serializable {
 	
 	public void a_Gauche() throws InvalidCoordException
 	{
-		/* On enlève 1 à l'abscisse */
 		int j = this.get_coordJ() - 1;
 		this.set_J(j);
 	}
 
 	public void a_Droite() throws InvalidCoordException
 	{
-		/* On ajoute 1 à l'abscisse */
 		int j = this.get_coordJ() + 1;
 		this.set_J(j);
 	}
 
 	public void en_Bas() throws InvalidCoordException
 	{
-		/* On ajoute 1 à l'ordonnée */
 		int i = this.get_coordI() + 1;
 		this.set_I(i);
 	}
 
 	public void en_Haut() throws InvalidCoordException
 	{
-		/* On enlève 1 à l'ordonnée */
 		int i = this.get_coordI() - 1;
 		this.set_I(i);
 	}
