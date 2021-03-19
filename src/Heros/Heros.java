@@ -1,5 +1,6 @@
 package Heros;
 
+import Outils.Alea;
 
 public class Heros {
 	
@@ -10,12 +11,8 @@ public class Heros {
 	public Heros() 
 	{
 		
-	setPV(PV);
+	this.PV = Alea.EntierEntre(5,10);
 	this.PV_Depart= this.PV;
-	
-	
-	
-	
 	
 	}
 
@@ -38,11 +35,7 @@ public class Heros {
 	    	else 
 	    		this.PV = this.PV_Depart;
 	    }
-		
-		
-		
-		
-		
+			
 	}
 
 	public boolean getObjets() {
@@ -54,22 +47,7 @@ public class Heros {
 		
 		Objets = objets;
 		
-		
-		
-		
-		
-		
-		
 	}
-
-	public int getPV_Depart() {
-		
-		return PV_Depart;
-	}
-	
-	
-	
-	
 	
 	public String toString () {
 		return ("Nombre de pv : "+ getPV());
