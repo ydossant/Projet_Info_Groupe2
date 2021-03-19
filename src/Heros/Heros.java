@@ -52,6 +52,6 @@ public class Heros {
 	public String toString () {
 		return ("Nombre de pv : "+ getPV());
 	}
-	
+
 	
 }
