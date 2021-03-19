@@ -1,5 +1,5 @@
-package Dongeon;
+package main;
 
 public class Main {
-	
+
 }
