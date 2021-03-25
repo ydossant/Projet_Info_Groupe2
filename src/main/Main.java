@@ -8,8 +8,8 @@ import Plateau.*;
 public class Main {
 	private static Plateau pla;
 	private static Heros he;
-	private static int lon = 2;
-	private static int lar = 2;
+	private static int lon = 5;
+	private static int lar = 5;
 	private static double vide = 1/2;
 	private static double mur = 1/6;
 	private static double pot = mur;
