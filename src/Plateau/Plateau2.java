@@ -47,9 +47,9 @@ public class Plateau2 {
        for(int i=0; i< nbrelign; i++){
             for(int j  =0; j< nbrecol; j++){
  
-             System.out.print(" | " + grille[i][j]);
+             System.out.print(" " + grille[i][j]);
            }
-            System.out.println(" | " );
+            System.out.println(" " );
        }
        System.out.println();
    }
