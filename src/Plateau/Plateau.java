@@ -1,17 +1,58 @@
 package Plateau;
 
 public class Plateau {
-	private static Plateau _donj;
-	
-	private Type_case potion, mur, vide, piege;
-	
-	Orientation coordHeros = null;
-	
-	private int nbPotion = -1, nbMur = -1, nbPieges = -1;
-	private int ptParPiece, piegParPiece, murParPiece;
-	private int nbL = 0;
-	private int nbC = 0;
-	
-}
+ 
+    private int nbrelign ;
+    private int nbrecol;
+    private char [][] grille;
+ 
+    public Plateau(int n,int p ){
+         nbrelign = n;
+         nbrecol = p;
+         grille = new char[nbrelign][nbrecol];
+ 
+         for(int i=0; i< nbrelign; i++){
+            for(int j =0; j< nbrecol; j++){
+             grille[i][j] = '*';
+           }
+        }
+    }
+ 
+    public int getNbrelign() {
+		return nbrelign;
+	}
 
+	public void setNbrelign(int nbrelign) {
+		this.nbrelign = nbrelign;
+	}
+
+	public int getNbrecol() {
+		return nbrecol;
+	}
+
+	public void setNbrecol(int nbrecol) {
+		this.nbrecol = nbrecol;
+	}
+
+	public char[][] getGrille() {
+		return grille;
+	}
+
+	public void setGrille(char[][] grille) {
+		this.grille = grille;
+	}
+
+	public void afficher(){
+       System.out.println();
+       for(int i=0; i< nbrelign; i++){
+            for(int j  =0; j< nbrecol; j++){
+ 
+             System.out.print(" " + grille[i][j]);
+           }
+            System.out.println(" " );
+       }
+       System.out.println();
+   }
+ 
+}
 	
