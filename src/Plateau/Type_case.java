@@ -1,5 +1,5 @@
 package Plateau;
 
 public enum Type_case {
-	mur, vide, piege, potion, objectif,inconnue;
+	mur, vide, piege, potion, objectif;
 }
