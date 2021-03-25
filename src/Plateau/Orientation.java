@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.ListIterator;
 
 import Plateau.Plateau;
-import Outils.InvalidCoordException;
+import Outils.HorsPlateau;
 import Plateau.Orientation;
 
 public class Orientation implements Cloneable, java.io.Serializable {
@@ -51,25 +51,25 @@ public class Orientation implements Cloneable, java.io.Serializable {
 		return bon;
 	}
 	
-	public void a_Gauche() throws InvalidCoordException
+	public void a_Gauche() throws HorsPlateau
 	{
 		int j = this.get_coordJ() - 1;
 		this.set_J(j);
 	}
 
-	public void a_Droite() throws InvalidCoordException
+	public void a_Droite() throws HorsPlateau
 	{
 		int j = this.get_coordJ() + 1;
 		this.set_J(j);
 	}
 
-	public void en_Bas() throws InvalidCoordException
+	public void en_Bas() throws HorsPlateau
 	{
 		int i = this.get_coordI() + 1;
 		this.set_I(i);
 	}
 
-	public void en_Haut() throws InvalidCoordException
+	public void en_Haut() throws HorsPlateau
 	{
 		int i = this.get_coordI() - 1;
 		this.set_I(i);
@@ -95,7 +95,7 @@ public class Orientation implements Cloneable, java.io.Serializable {
 		return (int)Orientation.MAX_J;
 	}
 
-	public void set_I(int i) throws InvalidCoordException
+	public void set_I(int i) throws HorsPlateau
 	{
 		if( (i >= Orientation.MIN_ORD) && (i <= Orientation.MAX_ORD()) )
 		{
@@ -103,15 +103,15 @@ public class Orientation implements Cloneable, java.io.Serializable {
 		}
 		else if( i < Orientation.MIN_ORD)
 		{
-			throw new InvalidCoordException("En dehors de la zone (trop en haut)");
+			throw new HorsPlateau("En dehors de la zone (trop en haut)");
 		}
 		else
 		{
-			throw new InvalidCoordException("En dehors de la zone (trop en bas)");
+			throw new HorsPlateau("En dehors de la zone (trop en bas)");
 		}
 	}
 
-	public void set_J(int j) throws InvalidCoordException
+	public void set_J(int j) throws HorsPlateau
 	{
 		if( (j >= Orientation.MIN_ABS) && (j <= Orientation.MAX_ABS()) )
 		{
@@ -119,11 +119,11 @@ public class Orientation implements Cloneable, java.io.Serializable {
 		}
 		else if( j < Orientation.MIN_ABS)
 		{
-			throw new InvalidCoordException("En dehors de la zone (trop à gauche)");
+			throw new HorsPlateau("En dehors de la zone (trop à gauche)");
 		}
 		else
 		{
-			throw new InvalidCoordException("En dehors de la zone (trop à droite)");
+			throw new HorsPlateau("En dehors de la zone (trop à droite)");
 		}
 	}
 
