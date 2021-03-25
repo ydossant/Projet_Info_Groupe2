@@ -40,5 +40,16 @@ public class Main {
 		
 		bon = false;
 	}
+	
+	private static void creer_Heros() {
+		String nom;
+		
+		System.out.println( "________________Création du héros________________" );
+		System.out.println( "Saisir votre nom");
+		nom = Clavier.lire_Chaine();
+		
+		
+		System.out.println(Main.he);
+	}
 
 }
