@@ -25,7 +25,7 @@ public class Main {
 		
 		do
 		{
-			System.out.println( "_______________Création du donjon_______________" );
+			System.out.println( "_______________Creation du donjon_______________" );
 			System.out.println( "Saisir tout d'abord la longueur du donjon (minimum 2)" );
 			Main.lon = Clavier.lire_Int();
 			System.out.println( "Saisir tout d'abord la largeur du donjon (minimum 2)" );
@@ -44,15 +44,14 @@ public class Main {
 	private static void creer_Heros() {
 		String nom;
 		
-		System.out.println( "________________Création du héros________________" );
+		System.out.println( "________________Creation du heros________________" );
 		System.out.println( "Saisir votre nom");
 		nom = Clavier.lire_Chaine();
 		
 		
 		System.out.println(Main.he);
 	}
-	private static void Afficher(Object ch)
-	{
+	private static void Afficher(Object ch){
 		System.out.println(ch);
 	}
 
