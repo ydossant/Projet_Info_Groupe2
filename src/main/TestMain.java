@@ -4,7 +4,7 @@ import Heros.*;
 import Objets.*;
 import Outils.*;
 import Plateau.*;
-import main.Main;
+import main.*;
 
 public class TestMain {
 	public static void main(String[]args) {
