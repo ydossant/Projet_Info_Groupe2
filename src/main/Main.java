@@ -51,5 +51,9 @@ public class Main {
 		
 		System.out.println(Main.he);
 	}
+	private static void Afficher(Object ch)
+	{
+		System.out.println(ch);
+	}
 
 }
