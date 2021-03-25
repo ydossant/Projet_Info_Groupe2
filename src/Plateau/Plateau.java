@@ -13,7 +13,7 @@ public class Plateau {
  
          for(int i=0; i< nbrelign; i++){
             for(int j =0; j< nbrecol; j++){
-             grille[i][j] = '*';
+             grille[i][j] = '?';
            }
         }
     }
