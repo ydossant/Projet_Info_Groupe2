@@ -21,7 +21,7 @@ public class Heros {
 		return this.PV;
 	}
 
-	public void setPV(int pV) {
+	public void setPV(int PV) {
 		
 		if ( PV <= 0 )
 	    {
