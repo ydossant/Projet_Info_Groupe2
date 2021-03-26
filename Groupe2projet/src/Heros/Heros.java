@@ -1,6 +1,6 @@
 package Heros;
 
-import Objets.Alea;
+import Objets.*;
 
 public class Heros {
 	
@@ -47,6 +47,17 @@ public class Heros {
 		
 		Objets = objets;
 		
+	}
+	
+	public String degatsPieges (Piege P) {
+		int degats = P.get_Niveau();
+		
+		if (P.get_Actif()) {
+			return "le piege est actif, le heros perd" + degats + " pv"; 
+		}
+		else
+			return "le piège est inactif";
+		//("il reste "  + (PV - degats) + " pv ");
 	}
 	
 	public String toString () {
