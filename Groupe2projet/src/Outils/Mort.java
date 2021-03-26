@@ -1,4 +1,4 @@
-package Groupe2projet.src.Outils;
+package Outils;
 
 public class Mort extends Exception{
 

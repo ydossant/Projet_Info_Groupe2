@@ -1,4 +1,4 @@
-package Groupe2projet.src.Objets;
+package Objets;
 
 public class ViePotion<String> {
 	// Attributs
