@@ -1,4 +1,4 @@
-package Plateau;
+package Groupe2projet.src.Plateau;
 
 public class Plateau {
  

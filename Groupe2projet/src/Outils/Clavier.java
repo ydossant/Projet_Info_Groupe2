@@ -1,4 +1,4 @@
-package Outils;
+package Groupe2projet.src.Outils;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

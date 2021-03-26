@@ -1,4 +1,4 @@
-package Outils;
+package Groupe2projet.src.Outils;
 
 public class HorsPlateau extends Exception{
 

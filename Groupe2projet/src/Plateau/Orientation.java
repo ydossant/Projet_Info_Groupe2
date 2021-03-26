@@ -1,4 +1,4 @@
-package Plateau;
+package Groupe2projet.src.Plateau;
 
 import java.util.LinkedList;
 import java.util.ListIterator;
