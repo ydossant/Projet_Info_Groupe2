@@ -1,4 +1,4 @@
-package Groupe2projet.src.Objets;
+package Objets;
 
 
 public class Objets extends Potion
@@ -14,7 +14,7 @@ public class Objets extends Potion
 	{
 	    StringBuffer Objets = new StringBuffer("POTION !");
 	    Objets.append(super.toString())
-	    .append( "+ 1 vie grâce à cette potion !!" );
+	    .append( "+ 1 vie grï¿½ce ï¿½ cette potion !!" );
 	    
 	    return Objets.toString();
 	    

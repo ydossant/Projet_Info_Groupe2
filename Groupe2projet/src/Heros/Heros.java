@@ -1,6 +1,6 @@
-package Groupe2projet.src.Heros;
+package Heros;
 
-import Groupe2projet.src.Outils.Alea;
+import Objets.Alea;
 
 public class Heros {
 	

@@ -1,6 +1,6 @@
-package Groupe2projet.src.Plateau;
+package Plateau;
 
-import Groupe2projet.src.Plateau.Plateau;
+//import Plateau.Plateau;
 
 public class Test {
 	public static void main(String args[]) {
