@@ -6,5 +6,5 @@ public class Test {
 		plateau.afficher();
 	}
 
-	
+	//azertyuio
 }
