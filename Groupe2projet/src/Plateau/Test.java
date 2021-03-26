@@ -7,5 +7,4 @@ public class Test {
 		plateau.afficher();
 	}
 
-	
 }
