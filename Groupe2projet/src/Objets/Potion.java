@@ -1,4 +1,4 @@
-package Objets;
+package Groupe2projet.src.Objets;
 
 import java.io.Serializable;
 
