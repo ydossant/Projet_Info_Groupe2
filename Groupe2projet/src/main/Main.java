@@ -1,9 +1,9 @@
-package Groupe2projet.src.main;
+package main;
 
-import Groupe2projet.src.Heros.*;
-import Groupe2projet.src.Objets.*;
-import Groupe2projet.src.Outils.*;
-import Groupe2projet.src.Plateau.*;
+import Heros.*;
+import Objets.*;
+import Outils.*;
+import Plateau.*;
 
 public class Main {
 	private static Plateau pla;
