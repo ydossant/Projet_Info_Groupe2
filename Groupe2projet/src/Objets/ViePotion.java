@@ -58,7 +58,7 @@ public class ViePotion<String> {
 	// Surcharge
 	
 	public String toString() {
-	return "Le personnage a: " + vie;
+		return "Le personnage a: " + vie;
 	
 }
 }

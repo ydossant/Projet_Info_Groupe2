@@ -1,6 +1,6 @@
 package Outils;
 
-// Classe gérant l'ensemble des noms des différents composants
+// Classe gerant l'ensemble des noms des differents composants
 public class Initialisation {
 	
 	private static String[] nomObjets = {"Potion"};
