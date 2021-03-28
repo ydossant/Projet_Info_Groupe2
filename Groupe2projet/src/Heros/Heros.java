@@ -1,6 +1,7 @@
 package Heros;
 
 import Objets.*;
+import Outils.*;
 
 public class Heros {
 	

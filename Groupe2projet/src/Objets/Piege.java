@@ -2,7 +2,7 @@ package Objets;
 
 
 import java.io.Serializable;
-
+import Outils.*;
 
 public class Piege implements Serializable
 {

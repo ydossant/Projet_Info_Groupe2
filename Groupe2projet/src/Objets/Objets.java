@@ -1,5 +1,6 @@
 package Objets;
 
+import Outils.*;
 
 public class Objets extends Potion
 {
