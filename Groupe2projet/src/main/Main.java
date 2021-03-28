@@ -4,10 +4,6 @@ import Heros.*;
 import Objets.*;
 import Outils.*;
 import Plateau.*;
-import jeux.JeuConsole;
-import plateau.DonjonAmeliore;
-import plateau.Piece;
-import utilitaires.Clavier;
 
 public class Main {
 	private static Plateau pla;
