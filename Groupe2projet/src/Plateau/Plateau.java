@@ -1,7 +1,7 @@
 package Plateau;
 
 public class Plateau {
- 
+	private static Plateau plat;
     private int nbrelign ;
     private int nbrecol;
     private char [][] grille;
@@ -52,7 +52,15 @@ public class Plateau {
             System.out.println(" " );
        }
        System.out.println();
-   }
+	}
+	
+	public static void detruire_Plateau()
+	{
+		Plateau.plat = null;
+		Orientation.raz_ValsMaxs();
+	}
+	
+
  
 }
 	

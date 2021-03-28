@@ -1,9 +1,5 @@
 package Plateau;
 
-import java.util.LinkedList;
-import java.util.ListIterator;
-
-import Plateau.Plateau;
 import Outils.HorsPlateau;
 import Plateau.Orientation;
 
@@ -153,7 +149,7 @@ public class Orientation implements Cloneable, java.io.Serializable {
 	{
 		StringBuffer buf = new StringBuffer("\nPosition : ").append("\nAbscisse : ")
 														 .append(this.get_coordJ())
-															 .append("\nOrdonnÃ©e : ")
+															 .append("\nOrdonnée : ")
 															 .append(this.get_coordI() );
 		return buf.toString();
 	}

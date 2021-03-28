@@ -4,6 +4,10 @@ import Heros.*;
 import Objets.*;
 import Outils.*;
 import Plateau.*;
+import jeux.JeuConsole;
+import plateau.DonjonAmeliore;
+import plateau.Piece;
+import utilitaires.Clavier;
 
 public class Main {
 	private static Plateau pla;
@@ -51,8 +55,9 @@ public class Main {
 		
 		System.out.println(Main.he);
 	}
+	
 	private static void Afficher(Object ch){
 		System.out.println(ch);
 	}
-
+	
 }
