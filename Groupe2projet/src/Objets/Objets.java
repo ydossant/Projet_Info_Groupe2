@@ -7,7 +7,7 @@ public class Objets extends Potion
 	
 	public Objets()
 	{
-        super(Initialisation.get_nomObjetF(Alea.EntierEntre(0, Initialisation.get_NBnomObjetF()+1)));
+        super(Initialisation.get_nomObjets(Alea.EntierEntre(0, Initialisation.get_NBnomObjets()-1)));
 	}
 	
 	
