@@ -55,6 +55,24 @@ public class Piece{
 		return sb.toString();		
 	}
 	
+	public String representation_Texte(int lg, int larg)
+	{
+		/* Dessin de  : (exemple)
+		 * ------------
+		 * |          |
+		 * |    M     |
+		 * |          |
+		 * ------------
+		 */
+		
+		StringBuffer bf = new StringBuffer("o");
+		
+		bf.append( this.attribuer_Lettre() );
+		
+		
+		return bf.toString();
+	}
+	
 	public String attribuer_Lettre()
 	{
 		StringBuffer bf = new StringBuffer("");

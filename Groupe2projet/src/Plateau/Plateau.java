@@ -68,44 +68,13 @@ public class Plateau {
 		
 		for(int i = 0; i < this.nbrelign; i ++)
 		{
-			bf.append( this.afficheUneLigne(i) );
+			for(int j  =0; j< nbrecol; j++){
+				 
+	             System.out.print(" " + pie.representation_Texte(i, j));
+	           }
 		}
 		
 		bf.append("\n");
-		
-		return bf.toString();
-	}
-	
-	protected String afficheUneLigne(int lig)
-	{
-		StringBuffer bf = new StringBuffer("");
-		int nbL = this.getNbrelign();
-		int nbC = this.getNbrecol();
-		
-		bf.append( TravailleChaine.avant_ElementPiece(nbC, 5) );
-		
-		/* 2) On affiche le contenu de chaque pièce pour une ligne */
-		for(int j = 0; j < nbC; j ++)
-		{
-			Piece pi = this.get_UneCase(lig, j);
-
-			String heros = new String();
-
-			Orientation or = pi.getCoord();
-			/* Si le héros se trouve dans la pièce on l'affiche aussi */
-			if( or.equals(this.get_CoordHeros()) )
-			{
-				heros = new String("H");
-			}		
-			StringBuffer ssSB = new StringBuffer(heros);
-			/* On rajoute l'élément qu'il y a dans la pièce */
-			ssSB.append( pi.attribuer_Lettre() );
-			
-			bf.append( TravailleChaine.rajouter_Blanc(5, ssSB.toString(), " ") );	
-		}
-		bf.append("|\n");
-		
-		bf.append( TravailleChaine.apres_ElementPiece(nbC, 5) );
 		
 		return bf.toString();
 	}
@@ -115,7 +84,7 @@ public class Plateau {
        for(int i=0; i< nbrelign; i++){
             for(int j  =0; j< nbrecol; j++){
  
-             System.out.print(" " + pie.attribuer_Lettre());
+             System.out.print(" " + pie.representation_Texte(i, j));
            }
             System.out.println(" " );
        }
