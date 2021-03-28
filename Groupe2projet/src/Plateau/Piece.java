@@ -1,8 +1,7 @@
 package Plateau;
 
-import java.io.Serializable;
 
-public class Piece implements Serializable{
+public class Piece{
 	private Orientation coord;
 	private boolean estDejaVenu = false;
 	private boolean aTresor     = false;
