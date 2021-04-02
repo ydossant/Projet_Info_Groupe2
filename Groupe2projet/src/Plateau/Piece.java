@@ -43,13 +43,13 @@ public class Piece{
 		/* On affiche d'abord les coordonnÃ©es */
 		sb.append(this.getCoord());
 		
-		sb.append("\nPrÃ©sence d'un monstre : ");
+		sb.append("\nPrésence d'une potion : ");
 		sb.append("\n").append( this.A_Potions() );
 		
-		sb.append("\nPrÃ©sence d'un piÃ¨ge : ");
+		sb.append("\nPrésence d'un piège : ");
 		sb.append("\n").append( this.A_Pieges() );
 		
-		sb.append("\nPrÃ©sence d'un trÃ©sor : ");
+		sb.append("\nPrésence d'un mur : ");
 		sb.append("\n").append( this.A_Murs() ).append(" ");
 
 		return sb.toString();		
@@ -68,12 +68,6 @@ public class Piece{
 	public String attribuer_Lettre()
 	{
 		StringBuffer bf = new StringBuffer("");
-		
-		/* On va afficher soit un M pour monstre
-		 *                soit un T pour tresor
-		 *                soit un P pour piege
-		 *                soit un R pour une piÃ¨ce vide
-		 */
 		
 		if( this.nbPotions > 0 )
 		{
