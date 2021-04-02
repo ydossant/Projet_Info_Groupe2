@@ -40,7 +40,6 @@ public class Piece{
 	{
 		StringBuffer sb = new StringBuffer();
 		
-		/* On affiche d'abord les coordonnÃ©es */
 		sb.append(this.getCoord());
 		
 		sb.append("\nPrésence d'une potion : ");

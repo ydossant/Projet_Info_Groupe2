@@ -3,7 +3,7 @@ package Plateau;
 public class Test {
 	public static void main(String args[]) {
 		Plateau plateau = new Plateau(4,5);
-		plateau.afficher();
+		//plateau.afficher();
 		System.out.println(plateau);
 		//Orientation or = new Orientation(4,5);
 		//System.out.println(or);
