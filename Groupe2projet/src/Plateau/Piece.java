@@ -57,19 +57,11 @@ public class Piece{
 	
 	public String representation_Texte(int lg, int larg)
 	{
-		/* Dessin de  : (exemple)
-		 * ------------
-		 * |          |
-		 * |    M     |
-		 * |          |
-		 * ------------
-		 */
 		
 		StringBuffer bf = new StringBuffer("o");
 		
 		bf.append( this.attribuer_Lettre() );
-		
-		
+				
 		return bf.toString();
 	}
 	
