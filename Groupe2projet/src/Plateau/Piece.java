@@ -193,6 +193,12 @@ public class Piece{
 		this.nbMurs = nbMurs;
 	}
 	
+	public final void set_Tous(int nbM, int nbPo, int nbPi)
+	{
+		this.setNbPieges(nbPi);
+		this.setNbPotions(nbPo);
+		this.setNbMurs(nbM);
+	}
 	
 
 

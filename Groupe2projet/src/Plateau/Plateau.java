@@ -1,7 +1,6 @@
 package Plateau;
 
 import Outils.Alea;
-import plateau.Piece;
 
 public class Plateau {
 	private static Plateau plat;
@@ -10,11 +9,16 @@ public class Plateau {
     private Piece [][] grille;
     private Piece arrive, sortie;
     Orientation coordHeros = null;
+    private int nbMurs = -1, nbPotions = -1, nbPieges = -1;
     
     protected Plateau(int nbrelign, int nbrecol) {
     	this.setNbrelign(nbrelign);
     	this.setNbrecol(nbrecol);
     	this.grille = new Piece[nbrelign][nbrecol];
+    	int ttPieces = (nbrelign * nbrecol) - 1;    	
+		this.nbPotions = (int)( 1/6 * ttPieces );
+		this.nbPieges = (int)( 1/6 * ttPieces );
+		this.nbMurs = (int)( 1/6 * ttPieces );
     	
     	this.generer_Plateau();
     	
@@ -38,6 +42,66 @@ public class Plateau {
 		this.attribuer_AutresPieces();
 	}
     
+    protected void attribuer_AutresPieces()
+	{
+		this.creer_AttribuePotions();
+		this.creer_AttribuerPieges();
+		this.creer_AttribuerMurs();
+	}
+    
+    protected void attribuer(int nbPotions, int nbPieges, int nbMurs, int totalUnElt)
+	{
+		int compte = 0;
+		int i, j, nbC, nbL;
+		
+		nbL = this.getNbrelign();
+		nbC = this.getNbrecol();
+		Piece pArrive = this.getArrive();
+		Piece pSortie = this.getSortie();
+		
+		while(compte < totalUnElt)
+		{
+			i = Alea.EntierEntre(0, nbL - 1);
+			j = Alea.EntierEntre(0, nbC - 1);
+			
+			Piece pie = this.get_UneCase(i, j);
+			if( pie.get_PasInitialisee() && (pie != pArrive) 
+										 && (pie != pSortie) )
+			{
+				pie.set_Tous(nbPotions, nbMurs, nbPieges);
+				compte ++;
+			}
+		}
+	}
+    
+    protected void creer_AttribuePotions()
+	{
+		this.attribuer( this.nbPotions, 0, 0, this.get_NbPotionsTotal() );	
+	}
+    
+    protected void creer_AttribuerMurs()
+	{
+		Piece pArrive = this.getArrive();
+		Piece pSortie = this.getSortie();
+		for(int i = 0; i < this.nbrelign; i ++)
+		{
+			for(int j = 0; j < this.nbrecol; j ++)
+			{
+				Piece pi = this.get_UneCase(i, j);
+				if(pi.get_PasInitialisee() && (pi != pArrive)
+										   && (pi != pSortie) )
+				{
+					pi.set_Tous(0, this.nbMurs, 0);
+				}
+			}
+		}
+	}
+    
+    protected void creer_AttribuerPieges()
+	{
+		this.attribuer( 0, this.nbPieges, 0, this.get_NbPiegesTotal() );
+	}
+    
     protected void attribution_PiecesSpeciales()
 	{
 		int coordI = 0, coordJ = 0;
@@ -51,7 +115,6 @@ public class Plateau {
 		 */
 		if(depart == 0)
 		{	
-			/* On cherche à avoir des coordonnées faisants le contour du donjon */
 			coordI = Alea.EntierEntre(0, lg - 1);
 			
 			if( (coordI == 0) || (coordI == (lg - 1) ) )
@@ -70,7 +133,6 @@ public class Plateau {
 		}
 		else
 		{
-			/* On cherche à avoir des coordonnées faisants le contour du donjon */
 			coordJ = Alea.EntierEntre(0, larg - 1);
 			
 			if( (coordJ == 0) || (coordJ == (larg - 1) ) )
@@ -87,8 +149,7 @@ public class Plateau {
 				}
 			}
 		}
-				
-		/* On définit la pièce où le joueur devra sortir */
+
 		Piece pce = this.get_UneCase(coordI, coordJ); 
 		this.setSortie( pce );
 		this.setArrive( pce );
@@ -141,8 +202,7 @@ public class Plateau {
 	protected final void set_UneCase(int i, int j, Piece pie)
 	{
 		this.grille[i][j] = pie;
-	}
-	
+	}	
 	
 	public static Plateau getPlat() {
 		return plat;
@@ -181,6 +241,21 @@ public class Plateau {
 		return this.coordHeros;
 	}
 	
+	protected final int get_NbPotionsTotal()
+	{
+		return this.nbPotions;
+	}
+	
+	protected final int get_NbPiegesTotal()
+	{
+		return this.nbPieges;
+	}
+
+	protected final int get_NbMursTotal()
+	{
+		return this.nbMurs;
+	}
+
 	public String toString()
 	{
 		StringBuffer bf = new StringBuffer("\n");
