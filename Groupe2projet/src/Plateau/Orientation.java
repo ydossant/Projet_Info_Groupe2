@@ -3,7 +3,7 @@ package Plateau;
 import Outils.HorsPlateau;
 import Plateau.Orientation;
 
-public class Orientation implements Cloneable, java.io.Serializable {
+public class Orientation{
 	private int i, j;
 
 	private static int MAX_I = -1;

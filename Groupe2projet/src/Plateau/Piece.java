@@ -25,6 +25,24 @@ public class Piece{
 		this.nbMurs = nbMurs;
 	}
 	
+	public boolean equals(Object o)
+	{
+		boolean bon = false;
+		if( o instanceof Piece )
+		{
+			Piece pp = (Piece)o;
+			
+			bon = this.coord.equals( pp.coord );
+			bon &= (this.nbPotions == pp.nbPotions);
+			bon &= (this.nbPieges == pp.nbPieges);
+			bon &= (this.nbMurs == pp.nbMurs);
+			bon &= (this.estDejaVenu = pp.estDejaVenu);
+			bon &= (this.aTresor == pp.aTresor);
+		}
+		
+		return bon;
+	}
+	
 	public boolean est_Vide()
 	{
 		boolean bon = true; 		
@@ -64,25 +82,30 @@ public class Piece{
 		return bf.toString();
 	}
 	
-	public String attribuer_Lettre()
-	{
+	public String attribuer_Lettre(){
 		StringBuffer bf = new StringBuffer("");
 		
-		if( this.nbPotions > 0 )
-		{
-			bf.append("M");
-		}
-		if( this.nbPieges > 0 )
-		{
-			bf.append("P");
-		}
-		if( this.nbMurs > 0 )
-		{
-			bf.append("T");
-		}
-		if( this.est_Vide() )
-		{
+		if(isEstDejaVenu()==true){
 			bf.append("?");
+		}
+		else{
+			if(isEstSortie()==true) {
+				bf.append("S");
+			}
+			else {
+				if( this.nbPotions > 0 ){
+					bf.append("M");
+				}
+				if( this.nbPieges > 0 ){
+					bf.append("P");
+				}
+				if( this.nbMurs > 0 ){
+					bf.append("T");
+				}
+				if( this.est_Vide() ){
+					bf.append("V");
+				}
+			}
 		}
 		
 		return bf.toString();

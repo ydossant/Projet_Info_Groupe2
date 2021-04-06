@@ -3,13 +3,16 @@ package Plateau;
 public class Test {
 	public static void main(String args[]) {
 		Plateau plateau = new Plateau(4,5);
-		//plateau.afficher();
+		plateau.coordHeros= new Orientation (0,2);
+		Piece pi = new Piece(plateau.coordHeros);
+		Orientation ori = new Orientation(3,4);
+		Piece pie = new Piece(ori,1,0,0);
 		System.out.println(plateau);
-		//Orientation or = new Orientation(4,5);
-		//System.out.println(or);
-		//Piece pi = new Piece(or);
-		//System.out.println(pi);
-		//System.out.println(pi.attribuer_Lettre());
+		/*Orientation or = new Orientation(4,5);
+		System.out.println(or);
+		Piece pi = new Piece(or,1,0,0);
+		System.out.println(pi);
+		*/
 	}
 
 }

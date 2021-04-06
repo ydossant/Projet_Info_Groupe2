@@ -1,6 +1,7 @@
 package Plateau;
 
 import Outils.Alea;
+import Outils.HorsPlateau;
 
 public class Plateau {
 	private static Plateau plat;
@@ -109,10 +110,6 @@ public class Plateau {
 		int lg = this.getNbrelign();
 		int larg = this.getNbrecol();
 		
-		/* On tire un nombre au hasard entre 1 et 2 pour savoir 
-		 * Sur quelle coordonnée de départ on se fixe 
-		 * 0 => Ordonnée, 1 => Abscisse
-		 */
 		if(depart == 0)
 		{	
 			coordI = Alea.EntierEntre(0, lg - 1);
@@ -156,19 +153,127 @@ public class Plateau {
 				
 	}
  
-    /*public Plateau(int n,int p ){
-         nbrelign = this.getNbrelign();
-         nbrecol = this.getNbrecol();
- 
-         for(int i=0; i< nbrelign; i++){
-            for(int j =0; j< nbrecol; j++){
-            	Piece pie = new Piece( new Orientation(i, j) );
-				this.set_UneCase(i, j, pie);
-           }
-        }
-    }
-    */
-    
+    public Piece Avance_Gauche() throws HorsPlateau
+	{
+		Piece pie = null;
+		
+		this.coordHeros.a_Gauche();
+		pie = this.get_UneCase(this.coordHeros.get_coordI(), this.coordHeros.get_coordJ());
+		
+		return pie;
+	}	
+	
+	public Piece Avance_Droite() throws HorsPlateau
+	{
+		Piece pie = null;
+		
+		this.coordHeros.a_Droite();
+		pie = this.get_UneCase(this.coordHeros.get_coordI(), this.coordHeros.get_coordJ());
+		
+		return pie;
+	}
+	
+	public Piece Avance_Bas() throws HorsPlateau
+	{
+		Piece pie = null;
+		
+		this.coordHeros.en_Bas();
+		pie = this.get_UneCase(this.coordHeros.get_coordI(), this.coordHeros.get_coordJ());
+		
+		return pie;
+	}
+
+	public Piece Avance_Haut() throws HorsPlateau
+	{
+		Piece pie = null;
+		
+		this.coordHeros.en_Haut();
+		pie = this.get_UneCase(this.coordHeros.get_coordI(), this.coordHeros.get_coordJ());
+		
+		return pie;
+	}
+	
+	public String TestPossibilite_deplacement()
+	{
+		StringBuffer bf = new StringBuffer();
+
+		try
+		{
+			Orientation or = (Orientation)this.coordHeros.clone();
+			or.en_Haut();
+			bf.append("H : Pièce au-dessus possible \n");
+		}
+		catch(Exception e) 
+		{
+			bf.append("Mur au-dessus\n"); 
+		}
+		
+		try
+		{
+			Orientation or = (Orientation)this.coordHeros.clone();
+			or.en_Bas();
+			bf.append("B : Pièce au-dessous possible \n");
+		}
+		catch(Exception e) 
+		{
+			bf.append("Mur au-dessous\n");
+		}
+		
+		try
+		{
+			Orientation or = (Orientation)this.coordHeros.clone();
+			or.a_Gauche();
+			bf.append("G : Pièce à gauche possible\n");
+		}
+		catch(Exception e) 
+		{
+			bf.append("Mur à gauche\n");
+		}
+		
+		try
+		{
+			Orientation or = (Orientation)this.coordHeros.clone();
+			or.a_Droite();
+			bf.append("D : Pièce à droite possible \n");
+		}
+		catch(Exception e) 
+		{
+			bf.append("Mur à droite\n");
+		}
+		
+		return bf.toString();
+	}
+	
+	public String toString(){	
+		StringBuffer bf = new StringBuffer("\n");
+		for(int i = 0; i < this.nbrelign; i ++){
+			for(int j = 0; j< this.nbrecol; j ++){				 
+				Piece pi = this.get_UneCase(i, j);
+				Orientation or = pi.getCoord();
+				if( or.equals(this.get_CoordHeros()) ){
+					bf.append("H");
+				}
+				else
+					if( or.equals(this.getArrive())){
+						bf.append("D");
+					}
+					else
+						if(or.equals(this.getSortie())){
+							bf.append("S");
+						}
+						else
+							bf.append(pi.attribuer_Lettre());				
+	        }
+			bf.append("\n");
+		}
+		return bf.toString();
+	}
+
+	public static void detruire_Plateau()
+	{
+		Plateau.plat = null;
+		Orientation.raz_ValsMaxs();
+	}
  
     public int getNbrelign() {
 		return nbrelign;
@@ -255,43 +360,6 @@ public class Plateau {
 	{
 		return this.nbMurs;
 	}
-
-	public String toString()
-	{
-		StringBuffer bf = new StringBuffer("\n");
-		
-		for(int i = 0; i < this.nbrelign; i ++)
-		{
-			for(int j  =0; j< this.nbrecol; j++){
-				 
-	             System.out.print(pie.representation_Texte(i, j));
-	           }
-		}
-		
-		bf.append("\n");
-		
-		return bf.toString();
-	}
-
-	public void afficher(){
-       System.out.println();
-       for(int i=0; i< nbrelign; i++){
-            for(int j  =0; j< nbrecol; j++){
- 
-             System.out.print(" " + pie.representation_Texte(i, j));
-           }
-            System.out.println(" " );
-       }
-       System.out.println();
-	}
 	
-	public static void detruire_Plateau()
-	{
-		Plateau.plat = null;
-		Orientation.raz_ValsMaxs();
-	}
-	
-
- 
 }
 	
