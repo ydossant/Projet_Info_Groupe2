@@ -86,6 +86,8 @@ public class Main {
 					saisie2 = true;
 					//Donjon.detruire_Donjon();
 					Main.pla = Plateau.Nouveau(Main.lon, Main.lar);
+					Orientation ori = new Orientation(0,0);
+					
 					Afficher( "Prêt(e) pour jouer ?\nC'est parti !!\nVous êtes envoyé(e) en direct dans le donjon !!\n" );
 					Afficher(he);
 					bon = false;
@@ -155,7 +157,7 @@ public class Main {
 		}
 	}
 	
-	private static void gestionPotion(Piece pi)
+	private static void gestion_Potion(Piece pi)
 	{
 		boolean tress = he.getObjets();
 		
@@ -211,7 +213,7 @@ public class Main {
 				
 				case 2:
 				{
-					Main.gestionPotion(pi);
+					Main.gestion_Potion(pi);
 				}break;	
 				
 				case 4:
@@ -248,7 +250,7 @@ public class Main {
 	{
 		Afficher( Main.pla);
 		Piece pi = null;
-		Afficher("\nOÃ¹ aller ?\n");
+		Afficher("\nOù aller ?\n");
 	
 	    boolean Boucle ;
 	    do 
@@ -284,7 +286,7 @@ public class Main {
 	        }
 	        catch(HorsPlateau ex)
 	        {
-	            Afficher( "C'est impossible !\nVous vous cognez Ã  un mur!" );
+	            Afficher( "C'est impossible !\nVous vous cognez à  un mur!" );
 	            Boucle = false;
 	        }
 	    }while(! Boucle);
@@ -315,11 +317,11 @@ public class Main {
 			{
 				if( pi.est_LaPieceSortie() )
 				{
-					Afficher( "Vous avez trouvÃ© la sortie ...\n" );
+					Afficher( "Vous avez trouvé la sortie !!!\n" );
 				}
 				else
 				{
-					Afficher( "Cette piÃ¨ce est vide :oD !! Vous vous reposer !!" );
+					Afficher( "Cette pièce est vide !! Vous vous reposer !!" );
 				Main.gestion_Choix(pi);
 				}
 			}			
@@ -333,7 +335,7 @@ public class Main {
 			}
 			else
 			{
-				Afficher( "Erreur inconnue (Mais vous pouvez continuer Ã  jouer) !!\n" );
+				Afficher( "Erreur inconnue (Mais vous pouvez continuer à  jouer) !!\n" );
 			}
 		}
 		
@@ -364,7 +366,7 @@ public class Main {
 			}
 			if( enVie )
 			{
-				Afficher( "Bravo!!\nVous avez gagnÃ© !!" );
+				Afficher( "Bravo!!\nVous avez gagné !!" );
 			}
 		}
 		boolean bon = false;
@@ -389,7 +391,6 @@ public class Main {
 
 		do
 		{
-			 //On relance le jeu tant que le joueur veut rejouer 
 			joue = Main.veut_Jouer();
 			Plateau.detruire_Plateau();
 		}while( joue );		
