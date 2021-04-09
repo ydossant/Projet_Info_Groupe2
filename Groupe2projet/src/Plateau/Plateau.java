@@ -8,8 +8,9 @@ public class Plateau {
     private int nbrelign ;
     private int nbrecol;
     private Piece [][] grille;
-    private Piece arrive, sortie;
-    Orientation coordHeros = null;
+    private Piece arrive = new Piece(coordHeros);
+    private Piece sortie = new Piece(nbrelign, nbrecol);
+    Orientation coordHeros = Orientation(0,0);
     private int  nbPotions = -1, nbPieges = -1;
     
     public Plateau(int nbrelign, int nbrecol) {
