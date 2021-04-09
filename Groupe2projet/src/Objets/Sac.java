@@ -1,4 +1,4 @@
-package Heros;
+package Objets;
 
 public class Sac {
 
