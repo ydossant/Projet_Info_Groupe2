@@ -262,7 +262,7 @@ public class Main {
 	        try
 	        {
 	            Afficher("Quelle direction voulez-vous prendre ?");
-	            Afficher("H : haut, B : bas, G : gauche, D : droite");
+	            Afficher("H : haut, B : bas, G : gauche, D : droite ");
 	            String chSaisie = Clavier.lire_Chaine();
 			
 	            if( chSaisie.equalsIgnoreCase("G") )
