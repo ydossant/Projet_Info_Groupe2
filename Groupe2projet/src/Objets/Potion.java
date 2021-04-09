@@ -8,12 +8,17 @@ public abstract class Potion implements Serializable
 {
 	private String Nom;
 	private int soin;
+	private Object nomObjets;
 
 	
-	public Potion ()
 	{
 	 this.soin=Alea.EntierEntre(3,5);
 	}
+	
+	public Potion(String get_nomObjets) {
+		return;
+	}
+	
 	public int get_Soin() {
 		return this.soin;
 	}
