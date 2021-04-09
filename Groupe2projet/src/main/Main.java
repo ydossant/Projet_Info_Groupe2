@@ -159,9 +159,13 @@ public class Main {
 	
 	private static void gestion_Potion(Piece pi)
 	{
-		boolean tress = he.getObjets();
+		Heros h = Main.he;
+		Object[] tress = h.get_Potion().toArray();
+		int nb = tress.length;
+		boolean pot = he.getObjets();
 		
-		if( tress==true )
+		
+		if( pot==true )
 		{			
 			Afficher( "Voulez-vous prendre une potion ? :" );
 			for(int i = 0; i < nb; i ++)
@@ -178,6 +182,7 @@ public class Main {
 		}
 	}
 	
+
 	private static boolean gestion_Choix(Piece pi)
 	{
 		boolean bon = false;
