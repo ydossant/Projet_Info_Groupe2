@@ -1,10 +1,8 @@
 package Objets;
 
-import java.io.Serializable;
-
 import Outils.Alea;
 
-public abstract class Potion implements Serializable
+public abstract class Potion
 {
 	private String Nom;
 	private int soin;
