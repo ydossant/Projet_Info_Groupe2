@@ -64,7 +64,7 @@ public class Main {
 		boolean saisie2 = false;
 		boolean saisie3 = false;
 		
-		/** On initialise tout par dÃ©faut */
+		/** On initialise tout par défaut */
 		Main.init_Default();;
 		
 		Afficher( "****************MENU**********************" );
@@ -114,8 +114,8 @@ public class Main {
 					boolean partir = true;
 					do
 					{
-						Afficher( "Attention, vous n'avez pas tout initialisÃ© !!" );
-						Afficher( "Voici vos valeurs par dÃ©faut : " );
+						Afficher( "Attention, vous n'avez pas tout initialisé !!" );
+						Afficher( "Voici vos valeurs par défaut : " );
 						Afficher( "Nombre de cases : " + (Main.lon * Main.lar) );
 						Afficher( "Voulez-vous vraiment partir jouer (avec les valeurs par dÃ©faut) ? \n(1 pour oui, 0 pour non)\n" );
 						dac = Clavier.lire_Int();
@@ -152,7 +152,7 @@ public class Main {
 		}
 		else
 		{
-			Afficher( "Vous voyez un piÃ¨ge ...\n" );
+			Afficher( "Vous voyez un piège ...\n" );
 			Afficher( "Mais il est désactivé ... Heureusement !! )" );
 		}
 	}
@@ -174,7 +174,7 @@ public class Main {
 		}
 		else
 		{
-			Afficher( "Vous n'avez plus rien dans votre sac Ã  dos (retour au jeu) !" );
+			Afficher( "Vous n'avez plus rien dans votre sac à  dos (retour au jeu) !" );
 		}
 	}
 	
@@ -192,7 +192,6 @@ public class Main {
 				Afficher( "\nQue voulez-vous faire ?\n" );
 				Afficher( "1) Voir la carte magique" );
 				Afficher( "2) Prendre une potion" );
-				Afficher( "3) Enregistrer la partie" );
 				Afficher( "4) Retour au jeu" );
 				Afficher( "0) Quitter le jeu" );
 				val = Clavier.lire_Int();
@@ -227,7 +226,7 @@ public class Main {
 					String saisie = null;
 					do
 					{
-						Afficher( "Etes-vous sÃ»r de vouloir quitter le jeu en cours ?" );
+						Afficher( "Etes-vous sûr de vouloir quitter le jeu en cours ?" );
 						Afficher( "O : Oui, N : Non" );
 						saisie = Clavier.lire_Chaine();
 						
