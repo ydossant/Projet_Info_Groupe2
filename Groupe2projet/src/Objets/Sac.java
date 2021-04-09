@@ -2,6 +2,6 @@ package Objets;
 
 public class Sac {
 
-	int a=1;
+	int a=3;
 
 }
