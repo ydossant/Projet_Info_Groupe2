@@ -10,19 +10,29 @@ public class Plateau {
     private Piece [][] grille;
     private Piece arrive, sortie;
     Orientation coordHeros = null;
-    private int nbMurs = -1, nbPotions = -1, nbPieges = -1;
+    private int  nbPotions = -1, nbPieges = -1;
     
-    protected Plateau(int nbrelign, int nbrecol) {
+    public Plateau(int nbrelign, int nbrecol) {
     	this.setNbrelign(nbrelign);
     	this.setNbrecol(nbrecol);
     	this.grille = new Piece[nbrelign][nbrecol];
     	int ttPieces = (nbrelign * nbrecol) - 1;    	
-		this.nbPotions = (int)( 1/6 * ttPieces );
-		this.nbPieges = (int)( 1/6 * ttPieces );
-		this.nbMurs = (int)( 1/6 * ttPieces );
+		this.nbPotions = (int)( 1/4 * ttPieces );
+		this.nbPieges = (int)( 1/4 * ttPieces );
+		this.setArrive(arrive);
+		this.setSortie(sortie);
     	
     	this.generer_Plateau();
     	
+    }
+    
+    public static Plateau Nouveau(int nbLignes, int nbColonnes){
+    	if(Plateau.plat == null)		
+    	{
+    		Plateau.plat = new Plateau(nbLignes, nbColonnes);
+    	}
+
+    	return Plateau.plat;
     }
     
     protected void generer_Plateau()
@@ -47,10 +57,9 @@ public class Plateau {
 	{
 		this.creer_AttribuePotions();
 		this.creer_AttribuerPieges();
-		this.creer_AttribuerMurs();
 	}
     
-    protected void attribuer(int nbPotions, int nbPieges, int nbMurs, int totalUnElt)
+    protected void attribuer(int nbPotions, int nbPieges, int totalUnElt)
 	{
 		int compte = 0;
 		int i, j, nbC, nbL;
@@ -69,7 +78,7 @@ public class Plateau {
 			if( pie.get_PasInitialisee() && (pie != pArrive) 
 										 && (pie != pSortie) )
 			{
-				pie.set_Tous(nbPotions, nbMurs, nbPieges);
+				pie.set_Tous(nbPotions, nbPieges);
 				compte ++;
 			}
 		}
@@ -77,30 +86,12 @@ public class Plateau {
     
     protected void creer_AttribuePotions()
 	{
-		this.attribuer( this.nbPotions, 0, 0, this.get_NbPotionsTotal() );	
-	}
-    
-    protected void creer_AttribuerMurs()
-	{
-		Piece pArrive = this.getArrive();
-		Piece pSortie = this.getSortie();
-		for(int i = 0; i < this.nbrelign; i ++)
-		{
-			for(int j = 0; j < this.nbrecol; j ++)
-			{
-				Piece pi = this.get_UneCase(i, j);
-				if(pi.get_PasInitialisee() && (pi != pArrive)
-										   && (pi != pSortie) )
-				{
-					pi.set_Tous(0, this.nbMurs, 0);
-				}
-			}
-		}
+		this.attribuer( 0, this.nbPotions, this.get_NbPotionsTotal() );	
 	}
     
     protected void creer_AttribuerPieges()
 	{
-		this.attribuer( 0, this.nbPieges, 0, this.get_NbPiegesTotal() );
+		this.attribuer( this.nbPieges, 0, this.get_NbPiegesTotal() );
 	}
     
     protected void attribution_PiecesSpeciales()
@@ -250,19 +241,13 @@ public class Plateau {
 			for(int j = 0; j< this.nbrecol; j ++){				 
 				Piece pi = this.get_UneCase(i, j);
 				Orientation or = pi.getCoord();
+				bf.append("|");
 				if( or.equals(this.get_CoordHeros()) ){
 					bf.append("H");
 				}
 				else
-					if( or.equals(this.getArrive())){
-						bf.append("D");
-					}
-					else
-						if(or.equals(this.getSortie())){
-							bf.append("S");
-						}
-						else
-							bf.append(pi.attribuer_Lettre());				
+					bf.append(pi.attribuer_Lettre());
+				bf.append("|");
 	        }
 			bf.append("\n");
 		}
@@ -356,10 +341,6 @@ public class Plateau {
 		return this.nbPieges;
 	}
 
-	protected final int get_NbMursTotal()
-	{
-		return this.nbMurs;
-	}
 	
 }
 	

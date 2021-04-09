@@ -85,7 +85,7 @@ public class Piece{
 	public String attribuer_Lettre(){
 		StringBuffer bf = new StringBuffer("");
 		
-		if(isEstDejaVenu()==true){
+		if(isEstDejaVenu()==false){
 			bf.append("?");
 		}
 		else{
@@ -94,10 +94,10 @@ public class Piece{
 			}
 			else {
 				if( this.nbPotions > 0 ){
-					bf.append("M");
+					bf.append("Po");
 				}
 				if( this.nbPieges > 0 ){
-					bf.append("P");
+					bf.append("Pi");
 				}
 				if( this.nbMurs > 0 ){
 					bf.append("T");
@@ -216,11 +216,10 @@ public class Piece{
 		this.nbMurs = nbMurs;
 	}
 	
-	public final void set_Tous(int nbM, int nbPo, int nbPi)
+	public final void set_Tous(int nbPo, int nbPi)
 	{
 		this.setNbPieges(nbPi);
 		this.setNbPotions(nbPo);
-		this.setNbMurs(nbM);
 	}
 	
 

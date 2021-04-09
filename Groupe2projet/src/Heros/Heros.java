@@ -8,6 +8,7 @@ public class Heros {
 	private int PV;
 	private final int PV_Depart;
 	private boolean Objets = false;
+	private Object[] sac;
 	
 	public Heros() 
 	{
