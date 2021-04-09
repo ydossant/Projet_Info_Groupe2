@@ -249,7 +249,6 @@ public class Main {
 	{
 		Afficher( Main.pla);
 		Piece pi = null;
-		Afficher("\nOù aller ?\n");
 	
 	    boolean Boucle ;
 	    do 
