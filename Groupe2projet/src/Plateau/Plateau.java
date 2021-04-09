@@ -20,8 +20,10 @@ public class Plateau {
     	int ttPieces = (nbrelign * nbrecol) - 1;    	
 		this.nbPotions = (int)( 1/4 * ttPieces );
 		this.nbPieges = (int)( 1/4 * ttPieces );
-		this.setArrive(arrive);
-		this.setSortie(sortie);
+		this.coordHeros = new Orientation (0,0);
+		Orientation orsor = new Orientation (nbrelign, nbrecol);
+		this.arrive = new Piece(coordHeros);
+		this.sortie = new Piece(orsor);
     	
     	this.generer_Plateau();
     	
