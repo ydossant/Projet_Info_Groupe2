@@ -11,6 +11,9 @@ public class TestMain {
 		System.out.println(he); 
 		Plateau pla = new Plateau(4,5);
 		System.out.println(pla);
+		Objets po = new Objets();
+		System.out.println(po);
+		
 	}
 	
 }

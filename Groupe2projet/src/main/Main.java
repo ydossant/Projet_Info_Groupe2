@@ -64,7 +64,6 @@ public class Main {
 		boolean saisie2 = false;
 		boolean saisie3 = false;
 		
-		/** On initialise tout par défaut */
 		Main.init_Default();;
 		
 		Afficher( "****************MENU**********************" );
@@ -87,27 +86,24 @@ public class Main {
 					//Donjon.detruire_Donjon();
 					Main.pla = Plateau.Nouveau(Main.lon, Main.lar);
 					Orientation ori = new Orientation(0,0);
-					
-					Afficher( "Prêt(e) pour jouer ?\nC'est parti !!\nVous êtes envoyé(e) en direct dans le donjon !!\n" );
 					Afficher(he);
 					bon = false;
 				}break;
 				
 				case 0 : 
 				{
-					Afficher( "Au revoir !!\nA bientôt!!\n" );
+					Afficher( "Au revoir !!\n" );
 					bon = false;
 					quitter = true;
 				}break;
 				
 				default : 
 				{
-					Afficher( "Aïe !! Vous avez saisi(e) un mauvais chiffre !!" );
+					Afficher( "Vous avez saisi(e) un mauvais chiffre !!" );
 				}break;
 			}
 			if(! quitter)
 			{
-				/* La personne a appuyÃ© sur la touche 3 et n'est passÃ©e par le 1 et/ou le 2 */
 				if( (! bon) && ((! saisie1) || (! saisie2) ) && (! saisie3) )
 				{
 					int dac = 0;
@@ -117,7 +113,7 @@ public class Main {
 						Afficher( "Attention, vous n'avez pas tout initialisé !!" );
 						Afficher( "Voici vos valeurs par défaut : " );
 						Afficher( "Nombre de cases : " + (Main.lon * Main.lar) );
-						Afficher( "Voulez-vous vraiment partir jouer (avec les valeurs par dÃ©faut) ? \n(1 pour oui, 0 pour non)\n" );
+						Afficher( "Voulez-vous vraiment partir jouer (avec les valeurs par défaut) ? \n(1 pour oui, 0 pour non)\n" );
 						dac = Clavier.lire_Int();
 						switch( dac )
 						{
@@ -130,7 +126,7 @@ public class Main {
 							break;
 						
 							default:
-								Afficher( "Veuillez saisir soit 1, soit 0 :o@!! " );
+								Afficher( "Veuillez saisir soit 1, soit 0 !! " );
 							break;
 						}
 						partir = ( (dac == 0) | (dac == 1) );
@@ -153,14 +149,14 @@ public class Main {
 		else
 		{
 			Afficher( "Vous voyez un piège ...\n" );
-			Afficher( "Mais il est désactivé ... Heureusement !! )" );
+			Afficher( "Mais il est désactivé. )" );
 		}
 	}
 	
 	private static void gestion_Potion(Piece pi)
 	{
 		Heros h = Main.he;
-		Object[] tress = h.get_Potion().toArray();
+		Object[] tress = h.getSac().toArray();
 		int nb = tress.length;
 		boolean pot = he.getObjets();
 		
@@ -170,8 +166,8 @@ public class Main {
 			Afficher( "Voulez-vous prendre une potion ? :" );
 			for(int i = 0; i < nb; i ++)
 			{
-				Potion t = new Potion();
-				String potion = t.toString();
+				Objets p = new Objets();
+				String potion = p.toString();
 			}
 			Afficher( "N°" + nb + " : " + "Quitter ce menu" );
 			
@@ -195,9 +191,8 @@ public class Main {
 			{
 				Afficher( Main.pla );
 				Afficher( "\nQue voulez-vous faire ?\n" );
-				Afficher( "1) Voir la carte magique" );
-				Afficher( "2) Prendre une potion" );
-				Afficher( "4) Retour au jeu" );
+				Afficher( "1) Prendre une potion" );
+				Afficher( "2) Avancer dans le donjon" );
 				Afficher( "0) Quitter le jeu" );
 				val = Clavier.lire_Int();
 				
@@ -210,17 +205,12 @@ public class Main {
 			
 			switch(val)
 			{
-				case 1: 
-				{
-					Afficher( Main.pla );
-				}break;
-				
-				case 2:
+				case 1:
 				{
 					Main.gestion_Potion(pi);
 				}break;	
 				
-				case 4:
+				case 2:
 				{
 					Afficher( "Et c'est reparti !!\n" );
 				}break;
@@ -239,7 +229,6 @@ public class Main {
 					}while(! bienS );
 					if( saisie.equals("O") )
 					{
-						Afficher( "Tant pis pour vous !" );
 						continu = false;
 					}
 				}break;
@@ -290,7 +279,7 @@ public class Main {
 	        }
 	        catch(HorsPlateau ex)
 	        {
-	            Afficher( "C'est impossible !\nVous vous cognez à  un mur!" );
+	            Afficher( "C'est impossible !\nVous vous cognez à un mur!" );
 	            Boucle = false;
 	        }
 	    }while(! Boucle);

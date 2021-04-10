@@ -13,9 +13,9 @@ public class Objets extends Potion
 	
 	public String toString()
 	{
-	    StringBuffer Objets = new StringBuffer("POTION !");
+	    StringBuffer Objets = new StringBuffer();
 	    Objets.append(super.toString())
-	    .append( "+ 1 vie grâce à cette potion !!" );
+	    .append( "+ "+super.get_Soin()+ " vie grâce à cette potion !!" );
 	    
 	    return Objets.toString();
 	    

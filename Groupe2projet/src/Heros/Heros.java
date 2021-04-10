@@ -8,7 +8,7 @@ public class Heros {
 	private int PV;
 	private final int PV_Depart;
 	private boolean Objets = false;
-	private Object[] sac;
+	private Sac sac;
 	
 	public Heros() 
 	{
@@ -40,8 +40,12 @@ public class Heros {
 			
 	}
 
-	public boolean getObjets() {
+	public Sac getSac() {
 		
+		return this.sac;
+	}
+	
+	public boolean getObjets() {
 		return this.Objets;
 	}
 
