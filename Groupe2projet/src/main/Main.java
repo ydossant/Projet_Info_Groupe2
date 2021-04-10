@@ -308,7 +308,7 @@ public class Main {
 			{
 				if( pi.A_Potions() )
 				{
-					gestionPotion(pi);
+					gestion_Potion(pi);
 				}
 				
 				if( pi.A_Pieges() )
