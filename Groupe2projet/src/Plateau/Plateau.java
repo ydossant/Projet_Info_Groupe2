@@ -46,26 +46,33 @@ public class Plateau {
 		nbc = this.getNbrecol();
 		for( int i = 0; i < nbl; i ++ ){
 			for( int j = 0; j < nbc; j ++ ){
-				if(i%2==0) {
-					Piece pie = new Piece( new Orientation(i,j),0,0);
-					this.set_UneCase(i, j, pie);
+				Piece pi = new Piece (new Orientation(i,j));
+				if(pi==this.getSortie()) {
+					this.set_UneCase(i, j, this.getSortie());
 				}
 				else {
-					if(j%4==1) {
-						Piece pie = new Piece( new Orientation(i, j),0,1 );
+					if(i%2==0) {
+						Piece pie = new Piece( new Orientation(i,j),0,0);
 						this.set_UneCase(i, j, pie);
 					}
 					else {
-						if(j%2==1) {
-							Piece pie = new Piece( new Orientation(i, j),1,0 );
+						if(j%4==1) {
+							Piece pie = new Piece( new Orientation(i, j),0,1 );
 							this.set_UneCase(i, j, pie);
 						}
 						else {
-							Piece pie = new Piece( new Orientation(i, j),0,0 );
-							this.set_UneCase(i, j, pie);
+							if(j%2==1) {
+								Piece pie = new Piece( new Orientation(i, j),1,0 );
+								this.set_UneCase(i, j, pie);
+							}
+							else {
+								Piece pie = new Piece( new Orientation(i, j),0,0 );
+								this.set_UneCase(i, j, pie);
+							}
 						}
 					}
 				}
+				
 			}
 		}
 		this.attribution_PiecesSpeciales();
@@ -135,7 +142,7 @@ public class Plateau {
 			
 
 		Piece pce = this.get_UneCase(coordI, coordJ); 
-		this.setSortie( pce );			
+		this.setSortie( pce );		
 	}
  
     public Piece Avance_Gauche() throws HorsPlateau
