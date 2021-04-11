@@ -1,6 +1,5 @@
 package Plateau;
 
-
 public class Piece{
 	private Orientation coord;
 	private boolean estDejaVenu = false;
@@ -16,13 +15,12 @@ public class Piece{
 		this.setCoord(coord);
 	}
 	
-	public Piece(Orientation coord, int nbPotions, int nbPieges, int nbMurs)
+	public Piece(Orientation coord, int nbPotions, int nbPieges)
 	{
 		this.setCoord(coord);
 		
 		this.nbPotions  = nbPotions;
 		this.nbPieges  = nbPieges;
-		this.nbMurs = nbMurs;
 	}
 	
 	public boolean equals(Object o)
@@ -85,22 +83,19 @@ public class Piece{
 	public String attribuer_Lettre(){
 		StringBuffer bf = new StringBuffer("");
 		
-		if(isEstDejaVenu()==false){
+		if(isEstDejaVenu()==true){
 			bf.append("?");
 		}
 		else{
-			if(isEstSortie()==true) {
-				bf.append("S");
+			if(est_LaPieceSortie()==true) {
+				bf.append("E");
 			}
 			else {
 				if( this.nbPotions > 0 ){
-					bf.append("Po");
+					bf.append("S");
 				}
 				if( this.nbPieges > 0 ){
-					bf.append("Pi");
-				}
-				if( this.nbMurs > 0 ){
-					bf.append("T");
+					bf.append("P");
 				}
 				if( this.est_Vide() ){
 					bf.append("V");
@@ -183,6 +178,14 @@ public class Piece{
 	public void setEstSortie(boolean estSortie) {
 		this.estSortie = estSortie;
 	}
+	
+	public final void set_EstLaSortie()
+	{
+		if(! this.estSortie )
+		{
+			this.estSortie = true;
+		}
+	}
 
 	public boolean isEstArrive() {
 		return estArrive;
@@ -222,6 +225,16 @@ public class Piece{
 		this.setNbPotions(nbPo);
 	}
 	
-
-
+	public final Orientation get_Coordonnees()
+	{
+		return this.coord;
+	}
+	
+	public final void set_Coordonnees(Orientation or)
+	{
+		if(this.coord == null)
+		{
+			this.coord = (Orientation)or.clone();
+		}
+	}
 }

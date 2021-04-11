@@ -8,9 +8,9 @@ public class Plateau {
     private int nbrelign ;
     private int nbrecol;
     private Piece [][] grille;
-    private Piece arrive; //new Piece(coordHeros);
-    private Piece sortie; //new Piece(nbrelign, nbrecol);
-    Orientation coordHeros;// = Orientation(0,0);
+    private Piece arrive;
+    private Piece sortie;
+    Orientation coordHeros;
     private int  nbPotions = -1, nbPieges = -1;
     
     public Plateau(int nbrelign, int nbrecol) {
@@ -21,7 +21,7 @@ public class Plateau {
 		this.nbPotions = (int)( 1/4 * ttPieces );
 		this.nbPieges = (int)( 1/4 * ttPieces );
 		this.coordHeros = new Orientation (0,0);
-		Orientation orsor = new Orientation (nbrelign, nbrecol);
+		Orientation orsor = new Orientation (nbrelign-1, nbrecol-1);
 		this.arrive = new Piece(coordHeros);
 		this.sortie = new Piece(orsor);
     	
@@ -44,12 +44,28 @@ public class Plateau {
 		
 		nbl = this.getNbrelign();
 		nbc = this.getNbrecol();
-		for( int i = 0; i < nbl; i ++ )
-		{	
-			for( int j = 0; j < nbc; j ++ )
-			{
-				Piece pie = new Piece( new Orientation(i, j) );
-				this.set_UneCase(i, j, pie);
+		for( int i = 0; i < nbl; i ++ ){
+			for( int j = 0; j < nbc; j ++ ){
+				if(i%2==0) {
+					Piece pie = new Piece( new Orientation(i,j),0,0);
+					this.set_UneCase(i, j, pie);
+				}
+				else {
+					if(j%4==1) {
+						Piece pie = new Piece( new Orientation(i, j),0,1 );
+						this.set_UneCase(i, j, pie);
+					}
+					else {
+						if(j%2==1) {
+							Piece pie = new Piece( new Orientation(i, j),1,0 );
+							this.set_UneCase(i, j, pie);
+						}
+						else {
+							Piece pie = new Piece( new Orientation(i, j),0,0 );
+							this.set_UneCase(i, j, pie);
+						}
+					}
+				}
 			}
 		}
 		this.attribution_PiecesSpeciales();
@@ -141,10 +157,8 @@ public class Plateau {
 			}
 		}
 
-		Piece pce = this.get_UneCase(coordI, coordJ); 
-		this.setSortie( pce );
-		this.setArrive( pce );
-				
+		Piece pce = this.get_UneCase(nbrelign-1, nbrecol-1); 
+		this.setSortie( pce );				
 	}
  
     public Piece Avance_Gauche() throws HorsPlateau
@@ -195,7 +209,7 @@ public class Plateau {
 		{
 			Orientation or = (Orientation)this.coordHeros.clone();
 			or.en_Haut();
-			bf.append("H : PiÃ¨ce au-dessus possible \n");
+			bf.append("H : Pièce au-dessus possible \n");
 		}
 		catch(Exception e) 
 		{
@@ -206,7 +220,7 @@ public class Plateau {
 		{
 			Orientation or = (Orientation)this.coordHeros.clone();
 			or.en_Bas();
-			bf.append("B : PiÃ¨ce au-dessous possible \n");
+			bf.append("B : Pièce au-dessous possible \n");
 		}
 		catch(Exception e) 
 		{
@@ -217,22 +231,22 @@ public class Plateau {
 		{
 			Orientation or = (Orientation)this.coordHeros.clone();
 			or.a_Gauche();
-			bf.append("G : PiÃ¨ce Ã  gauche possible\n");
+			bf.append("G : Pièce à  gauche possible\n");
 		}
 		catch(Exception e) 
 		{
-			bf.append("Mur Ã  gauche\n");
+			bf.append("Mur à  gauche\n");
 		}
 		
 		try
 		{
 			Orientation or = (Orientation)this.coordHeros.clone();
 			or.a_Droite();
-			bf.append("D : PiÃ¨ce Ã  droite possible \n");
+			bf.append("D : Pièce à  droite possible \n");
 		}
 		catch(Exception e) 
 		{
-			bf.append("Mur Ã  droite\n");
+			bf.append("Mur à  droite\n");
 		}
 		
 		return bf.toString();
