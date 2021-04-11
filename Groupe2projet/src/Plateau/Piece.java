@@ -13,14 +13,16 @@ public class Piece{
 	public Piece(Orientation coord)
 	{
 		this.setCoord(coord);
+		this.set_EstLaSortie();
+		this.setEstDejaVenu(estDejaVenu);
 	}
 	
 	public Piece(Orientation coord, int nbPotions, int nbPieges)
 	{
-		this.setCoord(coord);
-		
+		this.setCoord(coord);	
 		this.nbPotions  = nbPotions;
 		this.nbPieges  = nbPieges;
+		this.setEstDejaVenu(estDejaVenu);
 	}
 	
 	public boolean equals(Object o)
@@ -98,7 +100,7 @@ public class Piece{
 					bf.append("P");
 				}
 				if( this.est_Vide() ){
-					bf.append("V");
+					bf.append(" ");
 				}
 			}
 		}

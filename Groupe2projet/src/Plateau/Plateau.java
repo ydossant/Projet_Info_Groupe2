@@ -21,9 +21,9 @@ public class Plateau {
 		this.nbPotions = (int)( 1/4 * ttPieces );
 		this.nbPieges = (int)( 1/4 * ttPieces );
 		this.coordHeros = new Orientation (0,0);
-		Orientation orsor = new Orientation (nbrelign-1, nbrecol-1);
+		//Orientation orsor = new Orientation (nbrelign-1, nbrecol-1);
 		this.arrive = new Piece(coordHeros);
-		this.sortie = new Piece(orsor);
+		//this.sortie = new Piece(orsor);
     	
     	this.generer_Plateau();
     	
@@ -85,7 +85,6 @@ public class Plateau {
 		
 		nbL = this.getNbrelign();
 		nbC = this.getNbrecol();
-		Piece pArrive = this.getArrive();
 		Piece pSortie = this.getSortie();
 		
 		while(compte < totalUnElt)
@@ -94,8 +93,7 @@ public class Plateau {
 			j = Alea.EntierEntre(0, nbC - 1);
 			
 			Piece pie = this.get_UneCase(i, j);
-			if( pie.get_PasInitialisee() && (pie != pArrive) 
-										 && (pie != pSortie) )
+			if( pie.get_PasInitialisee() && (pie != pSortie) )
 			{
 				pie.set_Tous(nbPotions, nbPieges);
 				compte ++;
@@ -105,60 +103,39 @@ public class Plateau {
     
     protected void creer_AttribuePotions()
 	{
-		this.attribuer( 0, this.nbPotions, this.get_NbPotionsTotal() );	
+		this.attribuer( 0, 1, this.get_NbPotionsTotal() );	
 	}
     
     protected void creer_AttribuerPieges()
 	{
-		this.attribuer( this.nbPieges, 0, this.get_NbPiegesTotal() );
+		this.attribuer( 1, 0, this.get_NbPiegesTotal() );
 	}
     
     protected void attribution_PiecesSpeciales()
 	{
 		int coordI = 0, coordJ = 0;
-		int depart = Alea.EntierEntre(0, 1);
 		int lg = this.getNbrelign();
 		int larg = this.getNbrecol();
 		
-		if(depart == 0)
-		{	
-			coordI = Alea.EntierEntre(0, lg - 1);
-			
-			if( (coordI == 0) || (coordI == (lg - 1) ) )
-			{
-				coordJ = Alea.EntierEntre(0, larg - 1);
-			}
-			else
-			{
-				boolean bon = false;
-				while(! bon)
-				{
-					coordJ = Alea.EntierEntre(0, larg - 1);
-					bon = ( (coordJ == 0) | (coordJ == larg - 1) );
-				}
-			}
+		coordI = Alea.EntierEntre(0, lg - 1);
+		
+		if( (coordI == 0) || (coordI == (lg - 1) ) )
+		{
+			coordJ = Alea.EntierEntre(0, larg - 1);
 		}
 		else
 		{
-			coordJ = Alea.EntierEntre(0, larg - 1);
+			boolean bon = false;
+			while(! bon)
+			{
+				coordJ = Alea.EntierEntre(0, larg - 1);
+				bon = ( (coordJ == 0) | (coordJ == larg - 1) );
+			}
+		}	
 			
-			if( (coordJ == 0) || (coordJ == (larg - 1) ) )
-			{
-				coordI = Alea.EntierEntre(0, lg - 1);
-			}
-			else
-			{
-				boolean bon = false;
-				while(! bon)
-				{
-					coordI = Alea.EntierEntre(0, lg - 1);
-					bon = ( (coordI == 0) | (coordI == lg - 1) );
-				}
-			}
-		}
 
-		Piece pce = this.get_UneCase(nbrelign-1, nbrecol-1); 
-		this.setSortie( pce );				
+		Piece pce = this.get_UneCase(coordI, coordJ); 
+		this.setSortie( pce );			
 	}
  
     public Piece Avance_Gauche() throws HorsPlateau
