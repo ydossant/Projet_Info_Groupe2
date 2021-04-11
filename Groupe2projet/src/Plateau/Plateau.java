@@ -1,7 +1,6 @@
 package Plateau;
 
 import Outils.Alea;
-import Outils.HorsPlateau;
 
 public class Plateau {
 	private static Plateau plat;
@@ -145,7 +144,7 @@ public class Plateau {
 		this.setSortie( pce );		
 	}
  
-    public Piece Avance_Gauche() throws HorsPlateau
+    public Piece Avance_Gauche() 
 	{
 		Piece pie = null;
 		
@@ -155,7 +154,7 @@ public class Plateau {
 		return pie;
 	}	
 	
-	public Piece Avance_Droite() throws HorsPlateau
+	public Piece Avance_Droite() 
 	{
 		Piece pie = null;
 		
@@ -165,7 +164,7 @@ public class Plateau {
 		return pie;
 	}
 	
-	public Piece Avance_Bas() throws HorsPlateau
+	public Piece Avance_Bas() 
 	{
 		Piece pie = null;
 		
@@ -175,7 +174,7 @@ public class Plateau {
 		return pie;
 	}
 
-	public Piece Avance_Haut() throws HorsPlateau
+	public Piece Avance_Haut() 
 	{
 		Piece pie = null;
 		

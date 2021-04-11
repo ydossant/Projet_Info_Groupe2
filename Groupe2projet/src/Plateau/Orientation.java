@@ -1,8 +1,5 @@
 package Plateau;
 
-import Outils.HorsPlateau;
-import Plateau.Orientation;
-
 public class Orientation{
 	private int i, j;
 
@@ -47,25 +44,25 @@ public class Orientation{
 		return bon;
 	}
 	
-	public void a_Gauche() throws HorsPlateau
+	public void a_Gauche() 
 	{
 		int j = this.get_coordJ() - 1;
 		this.set_J(j);
 	}
 
-	public void a_Droite() throws HorsPlateau
+	public void a_Droite()
 	{
 		int j = this.get_coordJ() + 1;
 		this.set_J(j);
 	}
 
-	public void en_Bas() throws HorsPlateau
+	public void en_Bas()
 	{
 		int i = this.get_coordI() + 1;
 		this.set_I(i);
 	}
 
-	public void en_Haut() throws HorsPlateau
+	public void en_Haut()
 	{
 		int i = this.get_coordI() - 1;
 		this.set_I(i);
@@ -91,36 +88,14 @@ public class Orientation{
 		return (int)Orientation.MAX_J;
 	}
 
-	public void set_I(int i) throws HorsPlateau
+	public void set_I(int i) 
 	{
-		if( (i >= Orientation.MIN_ORD) && (i <= Orientation.MAX_ORD()) )
-		{
-			this.i = i;
-		}
-		else if( i < Orientation.MIN_ORD)
-		{
-			throw new HorsPlateau("En dehors de la zone (trop en haut)");
-		}
-		else
-		{
-			throw new HorsPlateau("En dehors de la zone (trop en bas)");
-		}
+		this.i = i;
 	}
 
-	public void set_J(int j) throws HorsPlateau
+	public void set_J(int j) 
 	{
-		if( (j >= Orientation.MIN_ABS) && (j <= Orientation.MAX_ABS()) )
-		{
-			this.j = j;
-		}
-		else if( j < Orientation.MIN_ABS)
-		{
-			throw new HorsPlateau("En dehors de la zone (trop à gauche)");
-		}
-		else
-		{
-			throw new HorsPlateau("En dehors de la zone (trop à droite)");
-		}
+		this.j = j;				
 	}
 
 	public final static void set_MAX_ORD(int maxI)

@@ -55,15 +55,10 @@ public class Heros {
 		
 	}
 	
-	public String degatsPieges (Piege P) {
-		int degats = P.get_Niveau();
-		
-		if (P.get_Actif()) {
-			return "le piege est actif, le heros perd" + degats + " pv"; 
-		}
-		else
-			return "le piège est inactif";
-		//("il reste "  + (PV - degats) + " pv ");
+	public int degatsPieges (Piege P) {
+		int PV = this.PV;
+		PV = PV - P.get_Niveau();
+		return PV;
 	}
 	
 	public String toString () {

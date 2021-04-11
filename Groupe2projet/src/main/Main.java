@@ -145,6 +145,7 @@ public class Main {
 		if( p.get_Actif() )
 		{
 			Main.he.degatsPieges(p);
+			Afficher( "Vous avez perdu "+p+" de PV.");
 		}
 		else
 		{
@@ -248,40 +249,32 @@ public class Main {
 	    do 
 	    {
 	        Boucle = true;
-	        try
-	        {
-	            Afficher("Quelle direction voulez-vous prendre ?");
-	            Afficher("H : haut, B : bas, G : gauche, D : droite ");
-	            String chSaisie = Clavier.lire_Chaine();
-			
-	            if( chSaisie.equalsIgnoreCase("G") )
-	            {
-	                pi = Main.pla.Avance_Gauche();
-	            }
-	            else if( chSaisie.equalsIgnoreCase("D") )
-	            {
-	                pi = Main.pla.Avance_Droite();
-	            }
-	            else if( chSaisie.equalsIgnoreCase("B") )
-	            {
-	                pi = Main.pla.Avance_Bas();
-	            }
-	            else if( chSaisie.equalsIgnoreCase("H") )
-	            {
-	                pi = Main.pla.Avance_Haut();
-	            }
-	            else
-	            {
-	                Afficher ("Destination non comprise !");
-	                Afficher ("Vous ne pouvez mettre que G, D, H, B !");
-	                Boucle = false;
-	            }
-	        }
-	        catch(HorsPlateau ex)
-	        {
-	            Afficher( "C'est impossible !\nVous vous cognez à un mur!" );
-	            Boucle = false;
-	        }
+	        Afficher("Quelle direction voulez-vous prendre ?");
+            Afficher("H : haut, B : bas, G : gauche, D : droite ");
+            String chSaisie = Clavier.lire_Chaine();
+		
+            if( chSaisie.equalsIgnoreCase("G") )
+            {
+                pi = Main.pla.Avance_Gauche();
+            }
+            else if( chSaisie.equalsIgnoreCase("D") )
+            {
+                pi = Main.pla.Avance_Droite();
+            }
+            else if( chSaisie.equalsIgnoreCase("B") )
+            {
+                pi = Main.pla.Avance_Bas();
+            }
+            else if( chSaisie.equalsIgnoreCase("H") )
+            {
+                pi = Main.pla.Avance_Haut();
+            }
+            else
+            {
+                Afficher ("Destination non comprise !");
+                Afficher ("Vous ne pouvez mettre que G, D, H, B !");
+                Boucle = false;
+            }
 	    }while(! Boucle);
 	    
 		return pi;

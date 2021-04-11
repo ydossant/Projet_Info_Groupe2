@@ -13,6 +13,12 @@ public class TestMain {
 		System.out.println(pla);
 		Objets po = new Objets();
 		System.out.println(po);
+		pla.Avance_Bas();
+		System.out.println(pla);
+		pla.Avance_Droite();
+		System.out.println(pla);
+		Piege P = new Piege();
+		System.out.println(he.degatsPieges(P));
 	}
 	
 }
