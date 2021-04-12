@@ -145,7 +145,9 @@ public class Main {
 		if( p.get_Actif() )
 		{
 			Main.he.degatsPieges(p);
-			Afficher( "Vous avez perdu "+p+" de PV.");
+			Afficher(p);
+			Afficher("Il vou reste "+Main.he.getPV()+" PV.");
+			
 		}
 		else
 		{
@@ -197,7 +199,7 @@ public class Main {
 				Afficher( "0) Quitter le jeu" );
 				val = Clavier.lire_Int();
 				
-				bon = ( (val == 1) || (val == 2) || (val == 0) || (val == 3) || (val == 4) );
+				bon = ( (val == 1) || (val == 2) || (val == 0) );
 				if(! bon)
 				{
 					Afficher( "Attention, vous avez saisi une mauvaise valeur" );
@@ -235,7 +237,7 @@ public class Main {
 				}break;
 			}
 			
-		}while(val != 0);
+		}while(val == 0);
 		
 		return continu; 
 	}
@@ -307,7 +309,7 @@ public class Main {
 				}
 				else
 				{
-					Afficher( "Cette pièce est vide !! Vous vous reposer !!" );
+					Afficher( "Cette pièce est vide !!" );
 				Main.gestion_Choix(pi);
 				}
 			}			

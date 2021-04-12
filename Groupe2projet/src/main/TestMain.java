@@ -19,6 +19,7 @@ public class TestMain {
 		System.out.println(pla);
 		Piege P = new Piege();
 		System.out.println(he.degatsPieges(P));
+		System.out.println(P);
 	}
 	
 }

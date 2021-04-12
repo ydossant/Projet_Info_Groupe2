@@ -1,5 +1,7 @@
 package Plateau;
 
+import java.util.LinkedList;
+
 public class Piece{
 	private Orientation coord;
 	private boolean estDejaVenu = false;
@@ -48,7 +50,6 @@ public class Piece{
 		boolean bon = true; 		
 		bon =  (! this.A_Potions() );
 		bon &= (! this.A_Pieges() );
-		bon &= (! this.A_Murs() );
 		bon &= (!this.est_LaPieceSortie() );
 		
 		return bon;
@@ -65,9 +66,6 @@ public class Piece{
 		
 		sb.append("\nPrésence d'un piège : ");
 		sb.append("\n").append( this.A_Pieges() );
-		
-		sb.append("\nPrésence d'un mur : ");
-		sb.append("\n").append( this.A_Murs() ).append(" ");
 
 		return sb.toString();		
 	}
@@ -108,6 +106,22 @@ public class Piece{
 		return bf.toString();
 	}
 	
+	public final boolean get_Pieges(){
+		/* Si on n'est pas dÃ©jÃ  passÃ© dans cette piÃ¨ce, on crÃ©e l'ensemble des monstres */
+		if(! this.est_DejaPasseIci() )
+		{
+			this.estDejaVenu = true;
+		}
+		return this.estDejaVenu;
+	}
+	
+	public final boolean devient_Inactif() {
+		boolean a= false;
+		if(this.A_Pieges()&&this.est_DejaPasseIci()) {
+			a=true;
+		}
+		return a;
+	}
 	public final boolean est_DejaPasseIci()
 	{
 		return this.estDejaVenu;
@@ -116,11 +130,6 @@ public class Piece{
 	public final boolean est_LaPieceSortie()
 	{
 		return this.estSortie;
-	}
-	
-	public final boolean A_Murs()
-	{
-		return (this.nbMurs > 0);
 	}
 	
 	public final boolean A_Pieges()

@@ -33,4 +33,8 @@ public class Piege implements Serializable
 	{
 		this.Actif = false;
 	}
+	
+	public String toString() {
+		return "Vous perdez "+this.Niveau_Difficulte+" PV.";
+	}
 }
