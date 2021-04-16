@@ -141,12 +141,14 @@ public class Main {
 	{
 		Piege p = new Piege();
 		Heros h = Main.he;
+		int Vie = 0;
 
 		if( p.get_Actif() )
 		{
-			h.degatsPieges(p);
+			Vie = h.degatsPieges(p);
 			Afficher(p);
 			Afficher("Il vous reste "+h.getPV()+" PV.");
+			h.setPV(Vie);
 			
 			
 		}
@@ -161,6 +163,7 @@ public class Main {
 	{
 		Heros h = Main.he;
 		int nb = Main.he.getNBpotion();
+		int Vie = 0;
 		int saisie = 1;
 		boolean bon = false;
 		
@@ -178,7 +181,8 @@ public class Main {
 					case 1 :
 					{
 						Objets Po = new Objets();
-						h.soinPotion(Po);
+						Vie = h.soinPotion(Po);
+						h.setPV(Vie);
 					}break;
 				
 					case 0 :
@@ -229,7 +233,7 @@ public class Main {
 				
 				case 2:
 				{
-					Afficher( "Et c'est reparti !!\n" );
+					Afficher( "Continuons.\n" );
 				}break;
 				
 				case 0:
