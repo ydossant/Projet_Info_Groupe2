@@ -83,7 +83,6 @@ public class Main {
 					saisie1 = true;
 					Main.creer_Heros();
 					saisie2 = true;
-					//Donjon.detruire_Donjon();
 					Main.pla = Plateau.Nouveau(Main.lon, Main.lar);
 					Orientation ori = new Orientation(0,0);
 					Afficher(he);
@@ -141,12 +140,14 @@ public class Main {
 	private static void gestion_Piege(Piece pi) throws Mort
 	{
 		Piege p = new Piege();
+		Heros h = Main.he;
 
 		if( p.get_Actif() )
 		{
-			Main.he.degatsPieges(p);
+			h.degatsPieges(p);
 			Afficher(p);
-			Afficher("Il vou reste "+Main.he.getPV()+" PV.");
+			Afficher("Il vous reste "+h.getPV()+" PV.");
+			
 			
 		}
 		else
@@ -159,21 +160,34 @@ public class Main {
 	private static void gestion_Potion(Piece pi)
 	{
 		Heros h = Main.he;
-		Object[] tress = h.getSac().toArray();
-		int nb = tress.length;
-		boolean pot = he.getObjets();
+		int nb = Main.he.getNBpotion();
+		int saisie = 1;
+		boolean bon = false;
 		
 		
-		if( pot==true )
+		if( nb>0 )
 		{			
 			Afficher( "Voulez-vous prendre une potion ? :" );
-			for(int i = 0; i < nb; i ++)
-			{
-				Objets p = new Objets();
-				String potion = p.toString();
-			}
-			Afficher( "N°" + nb + " : " + "Quitter ce menu" );
-			
+			do {
+				Afficher("1 : oui");
+				Afficher("0 : non");
+				saisie = Clavier.lire_Int();
+				
+				switch(saisie) {
+				
+					case 1 :
+					{
+						Objets Po = new Objets();
+						h.soinPotion(Po);
+					}break;
+				
+					case 0 :
+					{
+						bon = true;
+					}break;
+				
+				}		
+			}while(!bon);
 		}
 		else
 		{

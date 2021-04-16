@@ -8,7 +8,7 @@ public class Heros {
 	private int PV;
 	private final int PV_Depart;
 	private boolean Objets = false;
-	private Sac sac;
+	private int NBpotion = 0;
 	
 	public Heros() 
 	{
@@ -18,8 +18,12 @@ public class Heros {
 	
 	}
 
-	public int getPV() {
+	public int getPV_Depart() {
 		
+		return this.PV_Depart;
+	}
+	
+	public int getPV() {
 		return this.PV;
 	}
 
@@ -40,9 +44,9 @@ public class Heros {
 			
 	}
 
-	public Sac getSac() {
+	public int getNBpotion() {
 		
-		return this.sac;
+		return this.NBpotion;
 	}
 	
 	public boolean getObjets() {
@@ -53,6 +57,12 @@ public class Heros {
 		
 		Objets = objets;
 		
+	}
+	
+	public int soinPotion (Potion Po) {
+		int PV = this.PV;
+		PV = PV + Po.get_Soin();
+		return PV;
 	}
 	
 	public int degatsPieges (Piege P) {
