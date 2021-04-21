@@ -25,12 +25,12 @@ public class Main {
 		do
 		{
 			System.out.println( "_Creation du donjon_" );
-			System.out.println( "Saisir tout d'abord la longueur du donjon (minimum 2)" );
+			System.out.println( "Saisir tout d'abord la longueur du donjon (minimum 4)" );
 			Main.lon = Clavier.lire_Int();
-			System.out.println( "Saisir tout d'abord la largeur du donjon (minimum 2)" );
+			System.out.println( "Saisir tout d'abord la largeur du donjon (minimum 4)" );
 			Main.lar = Clavier.lire_Int();
 			
-			bon = ( (Main.lon >= 2) && (Main.lar >= 2) );
+			bon = ( (Main.lon >= 4) && (Main.lar >= 4) );
 			if(! bon)
 			{
 				System.out.println( "Mauvaises valeurs" );
