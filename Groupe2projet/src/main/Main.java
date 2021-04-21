@@ -24,7 +24,7 @@ public class Main {
 		
 		do
 		{
-			System.out.println( "_______________Creation du donjon_______________" );
+			System.out.println( "_Creation du donjon_" );
 			System.out.println( "Saisir tout d'abord la longueur du donjon (minimum 2)" );
 			Main.lon = Clavier.lire_Int();
 			System.out.println( "Saisir tout d'abord la largeur du donjon (minimum 2)" );
@@ -33,7 +33,7 @@ public class Main {
 			bon = ( (Main.lon >= 2) && (Main.lar >= 2) );
 			if(! bon)
 			{
-				System.out.println( "Attention valeurs anormales :o( !" );
+				System.out.println( "Mauvaises valeurs" );
 			}
 		}while(! bon); 
 		
@@ -43,7 +43,7 @@ public class Main {
 	private static void creer_Heros() {
 		String nom;
 		
-		System.out.println( "________________Creation du heros________________" );
+		System.out.println( "_Creation du heros_" );
 		System.out.println( "Saisir votre nom");
 		nom = Clavier.lire_Chaine();
 		
@@ -66,7 +66,7 @@ public class Main {
 		
 		Main.init_Default();;
 		
-		Afficher( "****************MENU**********************" );
+		Afficher( "*MENU*" );
 		do
 		{
 			Afficher( "1) Jouer" );
@@ -91,14 +91,14 @@ public class Main {
 				
 				case 0 : 
 				{
-					Afficher( "Au revoir !!\n" );
+					Afficher( "Fin de la partie\n" );
 					bon = false;
 					quitter = true;
 				}break;
 				
 				default : 
 				{
-					Afficher( "Vous avez saisi(e) un mauvais chiffre !!" );
+					Afficher( "Vous avez saisi un mauvais chiffre" );
 				}break;
 			}
 			if(! quitter)
@@ -109,10 +109,10 @@ public class Main {
 					boolean partir = true;
 					do
 					{
-						Afficher( "Attention, vous n'avez pas tout initialisé !!" );
+						Afficher( "Tout n'est pas initialisé" );
 						Afficher( "Voici vos valeurs par défaut : " );
 						Afficher( "Nombre de cases : " + (Main.lon * Main.lar) );
-						Afficher( "Voulez-vous vraiment partir jouer (avec les valeurs par défaut) ? \n(1 pour oui, 0 pour non)\n" );
+						Afficher( "Voulez-vous jouer (avec les valeurs par défaut) ? \n(1 pour oui, 0 pour non)\n" );
 						dac = Clavier.lire_Int();
 						switch( dac )
 						{
@@ -121,11 +121,11 @@ public class Main {
 							break;
 						
 							case 1:
-								Afficher( "Tant pis pour vous => C'est parti !!!" );
+								Afficher( "C'est parti" );
 							break;
 						
 							default:
-								Afficher( "Veuillez saisir soit 1, soit 0 !! " );
+								Afficher( "Veuillez saisir soit 1, soit 0" );
 							break;
 						}
 						partir = ( (dac == 0) | (dac == 1) );
@@ -154,7 +154,7 @@ public class Main {
 		}
 		else
 		{
-			Afficher( "Vous voyez un piège ...\n" );
+			Afficher( "Vous voyez un piège\n" );
 			Afficher( "Mais il est désactivé. )" );
 		}
 	}
@@ -323,11 +323,11 @@ public class Main {
 			{
 				if( pi.est_LaPieceSortie() )
 				{
-					Afficher( "Vous avez trouvé la sortie !!!\n" );
+					Afficher( "Vous avez trouvé la sortie !\n" );
 				}
 				else
 				{
-					Afficher( "Cette pièce est vide !!" );
+					Afficher( "Cette pièce est vide" );
 				Main.gestion_Choix(pi);
 				}
 			}			
@@ -337,11 +337,11 @@ public class Main {
 			if( ex instanceof Mort )
 			{
 				envie = false;
-				Afficher( "Vous êtes mort !!" );
+				Afficher( "Vous êtes mort" );
 			}
 			else
 			{
-				Afficher( "Erreur inconnue (Mais vous pouvez continuer à  jouer) !!\n" );
+				Afficher( "Erreur inconnue (Mais vous pouvez continuer à  jouer)\n" );
 			}
 		}
 		
@@ -372,7 +372,7 @@ public class Main {
 			}
 			if( enVie )
 			{
-				Afficher( "Bravo!!\nVous avez gagné !!" );
+				Afficher( "Bravo!\nVous avez gagné !!" );
 			}
 		}
 		boolean bon = false;
@@ -383,7 +383,7 @@ public class Main {
 			bon = ( (saisie.equals("O")) | (saisie.equals("N")) );
 			if(! bon)
 			{
-				Afficher( "Attention !! Vous avez saisi(e) une mauvaise valeur !" );
+				Afficher( "Vous avez saisi(e) une mauvaise valeur" );
 			}
 		}while(! bon);
 		rejoue = (saisie.equals("O"));
