@@ -147,7 +147,7 @@ public class Main {
 		{
 			Vie = h.degatsPieges(p);
 			Afficher(p);
-			Afficher("Il vous reste "+h.getPV()+" PV.");
+			Afficher("Il vous reste "+Vie+" PV.");
 			h.setPV(Vie);
 			
 			
