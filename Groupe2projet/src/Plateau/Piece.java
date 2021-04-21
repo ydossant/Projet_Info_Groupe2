@@ -4,13 +4,10 @@ import java.util.LinkedList;
 
 public class Piece{
 	private Orientation coord;
-	private boolean estDejaVenu = false;
-	private boolean aTresor     = false;
-	private boolean estSortie   = false;
-	private boolean estArrive   = false;	
+	private boolean estDejaVenu ;
+	private boolean estSortie ;
 	private int nbPotions  = -1;
 	private int nbPieges  = -1;
-	private int nbMurs = -1;
 	
 	public Piece(Orientation coord)
 	{
@@ -37,9 +34,7 @@ public class Piece{
 			bon = this.coord.equals( pp.coord );
 			bon &= (this.nbPotions == pp.nbPotions);
 			bon &= (this.nbPieges == pp.nbPieges);
-			bon &= (this.nbMurs == pp.nbMurs);
 			bon &= (this.estDejaVenu = pp.estDejaVenu);
-			bon &= (this.aTresor == pp.aTresor);
 		}
 		
 		return bon;
@@ -107,7 +102,6 @@ public class Piece{
 	}
 	
 	public final boolean get_Pieges(){
-		/* Si on n'est pas déjà passé dans cette pièce, on crée l'ensemble des monstres */
 		if(! this.est_DejaPasseIci() )
 		{
 			this.estDejaVenu = true;
@@ -151,12 +145,9 @@ public class Piece{
 		boolean bon;
 		
 		bon = ( (this.nbPotions   == -1) && 
-				(this.nbPieges   == -1) &&
-				(this.nbMurs  == -1) );
-		
+				(this.nbPieges   == -1));
 		return bon;
 	}
-	//GETS AND SETS
 
 	public Orientation getCoord() {
 		return coord;
@@ -172,14 +163,6 @@ public class Piece{
 
 	public void setEstDejaVenu(boolean estDejaVenu) {
 		this.estDejaVenu = estDejaVenu;
-	}
-
-	public boolean isaTresor() {
-		return aTresor;
-	}
-
-	public void setaTresor(boolean aTresor) {
-		this.aTresor = aTresor;
 	}
 
 	public boolean isEstSortie() {
@@ -198,14 +181,6 @@ public class Piece{
 		}
 	}
 
-	public boolean isEstArrive() {
-		return estArrive;
-	}
-
-	public void setEstArrive(boolean estArrive) {
-		this.estArrive = estArrive;
-	}
-
 	public int getNbPotions() {
 		return nbPotions;
 	}
@@ -220,20 +195,6 @@ public class Piece{
 
 	public void setNbPieges(int nbPieges) {
 		this.nbPieges = nbPieges;
-	}
-
-	public int getNbMurs() {
-		return nbMurs;
-	}
-
-	public void setNbMurs(int nbMurs) {
-		this.nbMurs = nbMurs;
-	}
-	
-	public final void set_Tous(int nbPo, int nbPi)
-	{
-		this.setNbPieges(nbPi);
-		this.setNbPotions(nbPo);
 	}
 	
 	public final Orientation get_Coordonnees()

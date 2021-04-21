@@ -101,7 +101,6 @@ public class Plateau {
 			Piece pie = this.get_UneCase(i, j);
 			if( pie.get_PasInitialisee() && (pie != pSortie) )
 			{
-				pie.set_Tous(nbPotions, nbPieges);
 				compte ++;
 			}
 		}
@@ -120,6 +119,7 @@ public class Plateau {
     protected void attribution_PiecesSpeciales()
 	{
 		int coordI = 0, coordJ = 0;
+		int a = nbrelign-1, b = nbrecol-1;
 		int lg = this.getNbrelign();
 		int larg = this.getNbrecol();
 		
@@ -140,8 +140,9 @@ public class Plateau {
 		}	
 			
 
-		Piece pce = this.get_UneCase(coordI, coordJ); 
-		this.setSortie( pce );		
+		Piece pce = this.get_UneCase(coordI , coordJ); 
+		this.setSortie( pce );
+		pce.setEstSortie(true);
 	}
  
     public Piece Avance_Gauche() 
