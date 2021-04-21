@@ -82,22 +82,19 @@ public class Piece{
 			bf.append("?");
 		}
 		else{
+			if( this.nbPotions > 0 ){
+				bf.append("S");
+			}
+			if( this.nbPieges > 0 ){
+				bf.append("P");
+			}
+			if( this.est_Vide() ){
+				bf.append(" ");
+			}
 			if(est_LaPieceSortie()==true) {
 				bf.append("E");
 			}
-			else {
-				if( this.nbPotions > 0 ){
-					bf.append("S");
-				}
-				if( this.nbPieges > 0 ){
-					bf.append("P");
-				}
-				if( this.est_Vide() ){
-					bf.append(" ");
-				}
-			}
-		}
-		
+		}				
 		return bf.toString();
 	}
 	

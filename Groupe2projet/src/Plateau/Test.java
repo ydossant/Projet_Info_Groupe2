@@ -2,7 +2,7 @@ package Plateau;
 
 public class Test {
 	public static void main(String args[]) {
-		Plateau plateau = new Plateau(9,9);
+		Plateau plateau = new Plateau(5,5);
 		System.out.println(plateau.getSortie());
 		System.out.println(plateau);
 		/*Orientation or = new Orientation(3,4);

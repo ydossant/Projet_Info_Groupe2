@@ -125,7 +125,7 @@ public class Plateau {
 		
 		coordI = Alea.EntierEntre(0, lg - 1);
 		
-		if( (coordI == 0) || (coordI == (lg - 1) ) )
+		if( (coordI == (lg - 1) ) )
 		{
 			coordJ = Alea.EntierEntre(0, larg - 1);
 		}
@@ -134,7 +134,7 @@ public class Plateau {
 			boolean bon = false;
 			while(! bon)
 			{
-				coordJ = Alea.EntierEntre(0, larg - 1);
+				coordJ = Alea.EntierEntre(1, larg - 1);
 				bon = ( (coordJ == 0) | (coordJ == larg - 1) );
 			}
 		}	
