@@ -39,8 +39,7 @@ public class Plateau {
     
     protected void generer_Plateau()
 	{
-		int nbc, nbl;
-		
+		int nbc, nbl;	
 		nbl = this.getNbrelign();
 		nbc = this.getNbrecol();
 		for( int i = 0; i < nbl; i ++ ){
@@ -77,6 +76,7 @@ public class Plateau {
 		this.attribution_PiecesSpeciales();
 		this.attribuer();
 	}
+
     
     protected void attribuer()
 	{
