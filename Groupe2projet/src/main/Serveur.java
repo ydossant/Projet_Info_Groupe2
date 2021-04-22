@@ -8,9 +8,8 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
-/*
- * www.codeurjava.com
- */
+
+
 public class Serveur {
  
    public static void main(String[] test) {
@@ -50,7 +49,7 @@ public class Serveur {
                    System.out.println("Client : "+msg);
                    msg = in.readLine();
                 }
-                //sortir de la boucle si le client a déconecté
+                //sortir de la boucle si le client a déconnecté
                 System.out.println("Client déconecté");
                 //fermer le flux et la session socket
                 out.close();
