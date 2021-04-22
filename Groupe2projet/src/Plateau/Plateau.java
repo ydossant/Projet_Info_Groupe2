@@ -10,13 +10,13 @@ public class Plateau {
     private Piece arrive;
     private Piece sortie;
     Orientation coordHeros;
-    private int  nbPotions = -1, nbPieges = -1;
+    private int  nbPotions = 4, nbPieges = 4;
     
     public Plateau(int nbrelign, int nbrecol) {
     	this.setNbrelign(nbrelign);
     	this.setNbrecol(nbrecol);
     	this.grille = new Piece[nbrelign][nbrecol];
-    	int ttPieces = (nbrelign * nbrecol) - 1;    	
+    	int ttPieces = (nbrelign-1 * nbrecol-1);    	
 		this.nbPotions = (int)( 1/4 * ttPieces );
 		this.nbPieges = (int)( 1/4 * ttPieces );
 		this.coordHeros = new Orientation (0,0);
@@ -75,51 +75,37 @@ public class Plateau {
 			}
 		}
 		this.attribution_PiecesSpeciales();
-		this.attribuer_AutresPieces();
+		this.attribuer();
 	}
     
-    protected void attribuer_AutresPieces()
+    protected void attribuer()
 	{
-		this.creer_AttribuePotions();
-		this.creer_AttribuerPieges();
-	}
-    
-    protected void attribuer(int nbPotions, int nbPieges, int totalUnElt)
-	{
-		int compte = 0;
-		int i, j, nbC, nbL;
+		int po = this.nbPotions, pi = this.nbPieges;
+		int i=0, j=0;		
+		int nbL = this.getNbrelign();
+		int nbC = this.getNbrecol();
 		
-		nbL = this.getNbrelign();
-		nbC = this.getNbrecol();
-		Piece pSortie = this.getSortie();
-		
-		while(compte < totalUnElt)
+		while(po < nbPotions)
 		{
-			i = Alea.EntierEntre(0, nbL - 1);
-			j = Alea.EntierEntre(0, nbC - 1);
-			
-			Piece pie = this.get_UneCase(i, j);
-			if( pie.get_PasInitialisee() && (pie != pSortie) )
-			{
-				compte ++;
-			}
+			i = Alea.EntierEntre(0, nbL - 2);
+			j = Alea.EntierEntre(0, nbC - 2);			
+			Piece pie = new Piece( new Orientation(i, j),1,0 );
+			this.set_UneCase(i, j, pie);
+			po -= 1;
 		}
-	}
-    
-    protected void creer_AttribuePotions()
-	{
-		this.attribuer( 0, 1, this.get_NbPotionsTotal() );	
-	}
-    
-    protected void creer_AttribuerPieges()
-	{
-		this.attribuer( 1, 0, this.get_NbPiegesTotal() );
+		while(pi < nbPieges)
+		{
+			i = Alea.EntierEntre(0, nbL - 2);
+			j = Alea.EntierEntre(0, nbC - 2);			
+			Piece pie = new Piece( new Orientation(i, j),0,1 );
+			this.set_UneCase(i, j, pie);
+			pi -= 1;
+		}
 	}
     
     protected void attribution_PiecesSpeciales()
 	{
 		int coordI = 0, coordJ = 0;
-		int a = nbrelign-1, b = nbrecol-1;
 		int lg = this.getNbrelign();
 		int larg = this.getNbrecol();
 		
