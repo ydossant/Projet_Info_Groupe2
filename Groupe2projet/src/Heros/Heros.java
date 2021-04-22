@@ -59,6 +59,9 @@ public class Heros {
 		
 	}
 	
+	public void ajoutPotion() {
+		this.NBpotion +=1;
+	}
 	public int soinPotion (Potion Po) {
 		int PV = this.PV;
 		PV = PV + Po.get_Soin();

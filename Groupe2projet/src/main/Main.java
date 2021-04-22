@@ -160,9 +160,9 @@ public class Main {
 		
 		
 		if( nb>0 )
-		{			
-			Afficher( "Voulez-vous prendre une potion ? :" );
+		{
 			do {
+				Afficher( "Voulez-vous prendre une potion ? :" );
 				Afficher("1 : oui");
 				Afficher("0 : non");
 				saisie = Clavier.lire_Int();
@@ -173,7 +173,10 @@ public class Main {
 					{
 						Objets Po = new Objets();
 						Vie = h.soinPotion(Po);
+						Afficher(Po);
+						Afficher ("Vous avez "+Vie+" PV.");
 						h.setPV(Vie);
+						bon = true;
 					}break;
 				
 					case 0 :
@@ -182,14 +185,13 @@ public class Main {
 					}break;
 				
 				}		
-			}while(!bon);
+			}while(!bon || nb==0);
 		}
 		else
 		{
 			Afficher( "Vous n'avez plus rien dans votre sac à  dos (retour au jeu) !" );
 		}
 	}
-	
 
 	private static boolean gestion_Choix(Piece pi)
 	{
@@ -301,7 +303,8 @@ public class Main {
 			{
 				if( pi.A_Potions() )
 				{
-					gestion_Potion(pi);
+					Main.he.ajoutPotion();
+					Afficher("Vous avez trouvé une potion");
 					pi.setNbPotions(0);
 				}
 				
