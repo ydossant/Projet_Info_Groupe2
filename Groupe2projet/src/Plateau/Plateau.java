@@ -87,8 +87,21 @@ public class Plateau {
 		
 		while(po < nbPotions)
 		{
-			i = Alea.EntierEntre(0, nbL - 2);
-			j = Alea.EntierEntre(0, nbC - 2);			
+			i = Alea.EntierEntre(0, nbL - 1);
+			
+			if( (i != (nbL - 1) ) )
+			{
+				j = Alea.EntierEntre(0, nbC - 1);
+			}
+			else
+			{
+				boolean bon = false;
+				while(! bon)
+				{
+					j = Alea.EntierEntre(1, nbC - 1);
+					bon = ( (j == 0) | (j == nbC - 1) );
+				}
+			}
 			Piece pie = new Piece( new Orientation(i, j),1,0 );
 			this.set_UneCase(i, j, pie);
 			po -= 1;
