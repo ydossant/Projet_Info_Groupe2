@@ -25,5 +25,9 @@ public abstract class Potion
 	    StringBuffer Potion = new StringBuffer(this.get_Soin());
 		
 		return Potion.toString();
+		
+	/* {public String toString() {
+			return "Vous récupérez "+this.soin+" PV.";
+		  } ?? */
 	}
 }
