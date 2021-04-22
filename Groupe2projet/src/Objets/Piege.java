@@ -16,6 +16,11 @@ public class Piege implements Serializable
 		this.Actif = true;
 	}
 	
+	public Piege(boolean actif) {
+		this.Niveau_Difficulte = Alea.EntierEntre(2, 5);
+		this.Actif = actif;
+	}
+	
 	
 	public int get_Niveau()
 	{

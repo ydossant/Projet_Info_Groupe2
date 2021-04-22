@@ -143,20 +143,11 @@ public class Main {
 		Heros h = Main.he;
 		int Vie = 0;
 
-		if( p.get_Actif() )
-		{
-			Vie = h.degatsPieges(p);
-			Afficher(p);
-			Afficher("Il vous reste "+Vie+" PV.");
-			h.setPV(Vie);
-			
-			
-		}
-		else
-		{
-			Afficher( "Vous voyez un piège\n" );
-			Afficher( "Mais il est désactivé. )" );
-		}
+		Vie = h.degatsPieges(p);
+		Afficher(p);
+		Afficher("Il vous reste "+Vie+" PV.");
+		h.setPV(Vie);			
+		
 	}
 	
 	private static void gestion_Potion(Piece pi)
@@ -311,11 +302,13 @@ public class Main {
 				if( pi.A_Potions() )
 				{
 					gestion_Potion(pi);
+					pi.setNbPotions(0);
 				}
 				
 				if( pi.A_Pieges() )
 				{
 					gestion_Piege(pi);
+					pi.setNbPieges(0);
 				}
 				envie = Main.gestion_Choix(pi);
 			}

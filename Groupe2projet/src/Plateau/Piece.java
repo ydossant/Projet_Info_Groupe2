@@ -24,6 +24,14 @@ public class Piece{
 		this.setEstDejaVenu(estDejaVenu);
 	}
 	
+	public Piece(Orientation coord, int nbPotions, int nbPieges, boolean estDejaVenu)
+	{
+		this.setCoord(coord);	
+		this.nbPotions  = nbPotions;
+		this.nbPieges  = nbPieges;
+		this.setEstDejaVenu(estDejaVenu);
+	}
+	
 	public boolean equals(Object o)
 	{
 		boolean bon = false;
@@ -99,7 +107,7 @@ public class Piece{
 	}
 	
 	public final boolean get_Pieges(){
-		if(! this.est_DejaPasseIci() )
+		if( ! this.est_DejaPasseIci() )
 		{
 			this.estDejaVenu = true;
 		}
