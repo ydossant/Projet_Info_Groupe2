@@ -217,7 +217,7 @@ public class Main {
 				//Afficher( "0) Quitter le jeu" );
 				val = Clavier.lire_Int();
 				
-				bon = ( (val == 1) || (val == 2) || (val == 0) );
+				bon = ( (val == 1) || (val == 2) /*|| (val == 0)*/ );
 				if(! bon)
 				{
 					Afficher( "Attention, vous avez saisi une mauvaise valeur" );
