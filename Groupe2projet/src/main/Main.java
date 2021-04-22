@@ -214,10 +214,10 @@ public class Main {
 				Afficher( "\nQue voulez-vous faire ?\n" );
 				Afficher( "1) Prendre une potion" );
 				Afficher( "2) Avancer dans le donjon" );
-				Afficher( "0) Quitter le jeu" );
+				//Afficher( "0) Quitter le jeu" );
 				val = Clavier.lire_Int();
 				
-				bon = ( (val == 1) || (val == 2) || (val == 0) );
+				bon = ( (val == 1) || (val == 2) /*|| (val == 0)*/ );
 				if(! bon)
 				{
 					Afficher( "Attention, vous avez saisi une mauvaise valeur" );
@@ -236,7 +236,7 @@ public class Main {
 					Afficher( "Continuons.\n" );
 				}break;
 				
-				case 0:
+				/*case 0:
 				{
 					boolean bienS = false;
 					String saisie = null;
@@ -252,7 +252,7 @@ public class Main {
 					{
 						continu = false;
 					}
-				}break;
+				}break;*/
 			}
 			
 		}while(val == 0);
