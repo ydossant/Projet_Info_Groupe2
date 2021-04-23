@@ -1,6 +1,5 @@
 package Plateau;
 
-import java.util.LinkedList;
 
 public class Piece{
 	private Orientation coord;
@@ -86,7 +85,7 @@ public class Piece{
 	public String attribuer_Lettre(){
 		StringBuffer bf = new StringBuffer("");
 		
-		if(isEstDejaVenu()==true){
+		if(isEstDejaVenu()==false){
 			bf.append("?");
 		}
 		else{
