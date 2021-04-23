@@ -83,7 +83,6 @@ public class Main {
 					saisie2 = true;
 					Main.pla = Plateau.Nouveau(Main.lon, Main.lar);
 					Orientation ori = new Orientation(0,0);
-					Afficher(he);
 					bon = false;
 				}break;
 				
