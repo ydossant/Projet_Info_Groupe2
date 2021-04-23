@@ -85,7 +85,7 @@ public class Piece{
 	public String attribuer_Lettre(){
 		StringBuffer bf = new StringBuffer("");
 		
-		if(isEstDejaVenu()==false){
+		if(isEstDejaVenu()==true){
 			bf.append("?");
 		}
 		else{
