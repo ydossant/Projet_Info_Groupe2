@@ -10,12 +10,12 @@ public class Piege
 	
 	public Piege()
 	{
-		this.Niveau_Difficulte = Alea.EntierEntre(2, 5);
+		this.Niveau_Difficulte = Alea.EntierEntre(2, 4);
 		this.Actif = true;
 	}
 	
 	public Piege(boolean actif) {
-		this.Niveau_Difficulte = Alea.EntierEntre(2, 5);
+		this.Niveau_Difficulte = Alea.EntierEntre(2, 4);
 		this.Actif = actif;
 	}
 	

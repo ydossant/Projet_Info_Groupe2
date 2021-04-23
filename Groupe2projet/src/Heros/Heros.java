@@ -13,7 +13,7 @@ public class Heros {
 	public Heros() 
 	{
 		
-	this.PV = Alea.EntierEntre(5,10);
+	this.PV = Alea.EntierEntre(7,10);
 	this.PV_Depart= this.PV;
 	
 	}
