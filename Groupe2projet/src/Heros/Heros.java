@@ -60,7 +60,11 @@ public class Heros {
 	}
 	
 	public void ajoutPotion() {
-		this.NBpotion +=1;
+		this.NBpotion += 1 ;
+	}
+	
+	public void suprimePotion() {
+		this.NBpotion -= 1 ;
 	}
 	
 	public int soinPotion (Potion Po) {
