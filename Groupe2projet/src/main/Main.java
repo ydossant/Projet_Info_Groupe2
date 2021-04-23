@@ -10,9 +10,7 @@ public class Main {
 	private static Heros he;
 	private static int lon = 5;
 	private static int lar = 5;
-	private static double vide = 1/2;
-	private static double pot = 1/4;
-	private static double pge = pot;
+
 	
 	private static void init_Default(){
 		Main.he = new Heros();
@@ -24,10 +22,10 @@ public class Main {
 		
 		do
 		{
-			System.out.println( "_Creation du donjon_" );
-			System.out.println( "Saisir tout d'abord la longueur du donjon (minimum 4)" );
+			System.out.println( "Creation du donjon" );
+			System.out.println( "Saisir la longueur du donjon (minimum 4)" );
 			Main.lon = Clavier.lire_Int();
-			System.out.println( "Saisir tout d'abord la largeur du donjon (minimum 4)" );
+			System.out.println( "Saisir la largeur du donjon (minimum 4)" );
 			Main.lar = Clavier.lire_Int();
 			
 			bon = ( (Main.lon >= 4) && (Main.lar >= 4) );
@@ -43,7 +41,7 @@ public class Main {
 	private static void creer_Heros() {
 		String nom;
 		
-		System.out.println( "_Creation du heros_" );
+		System.out.println( "Creation du heros" );
 		System.out.println( "Saisir votre nom");
 		nom = Clavier.lire_Chaine();
 		
@@ -121,7 +119,7 @@ public class Main {
 							break;
 						
 							case 1:
-								Afficher( "C'est parti" );
+								Afficher( "Creation du donjon" );
 							break;
 						
 							default:
@@ -176,6 +174,7 @@ public class Main {
 						Afficher(Po);
 						Afficher ("Vous avez "+Vie+" PV.");
 						h.setPV(Vie);
+						Main.he.suprimePotion();
 						bon = true;
 					}break;
 				
@@ -189,7 +188,7 @@ public class Main {
 		}
 		else
 		{
-			Afficher( "Vous n'avez plus rien dans votre sac à  dos (retour au jeu) !" );
+			Afficher( "Vous n'avez rien dans votre sac" );
 		}
 	}
 
@@ -213,7 +212,7 @@ public class Main {
 				bon = ( (val == 1) || (val == 2) /*|| (val == 0)*/ );
 				if(! bon)
 				{
-					Afficher( "Attention, vous avez saisi une mauvaise valeur" );
+					Afficher( "Vous avez saisi une mauvaise valeur" );
 				}
 			}while(! bon);
 			
@@ -284,7 +283,7 @@ public class Main {
             }
             else
             {
-                Afficher ("Destination non comprise !");
+                Afficher ("Destination non valide !");
                 Afficher ("Vous ne pouvez mettre que G, D, H, B !");
                 Boucle = false;
             }
@@ -368,7 +367,7 @@ public class Main {
 			}
 			if( enVie )
 			{
-				Afficher( "Bravo!\nVous avez gagné !!" );
+				Afficher( "Bravo!\nVous avez gagné !" );
 			}
 		}
 		boolean bon = false;
