@@ -2,7 +2,7 @@ package Objets;
 
 import Outils.Alea;
 
-public abstract class Potion
+public class Potion
 {
 	private String Nom;
 	private int soin;
@@ -19,15 +19,13 @@ public abstract class Potion
 	{
 		return this.Nom;
 	}
-	
+	public Object getNomObjects(){
+		return this.nomObjets;
+	}
 	public String toString ()
 	{
 	    StringBuffer Potion = new StringBuffer(this.get_Soin());
 		
 		return Potion.toString();
-		
-	/* {public String toString() {
-			return "Vous récupérez "+this.soin+" PV.";
-		  } ?? */
 	}
 }

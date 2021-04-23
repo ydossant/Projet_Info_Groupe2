@@ -1,10 +1,8 @@
 package Objets;
 
-
-import java.io.Serializable;
 import Outils.*;
 
-public class Piege implements Serializable
+public class Piege
 {
 	private int Niveau_Difficulte;
 	private boolean Actif;
